@@ -18,6 +18,10 @@ Add a PayPal or Stripe Donation Button to your website and start collecting dona
 
 Do you want to easily collect donations on your site? This is the plugin just for that. Setup is easy to connect to PayPal and Stripe. We're also an official PayPal & Stripe Partner.
 
+### Have a question or problem?
+If you have any problems, questions, or issues please create a [support request](https://wordpress.org/support/plugin/easy-paypal-donation/) and we will get back to you quickly!
+
+
 ###  Watch this 1 minute video of how the plugin works:
 
 [youtube https://www.youtube.com/watch?v=YYUsrfnjNN0]
