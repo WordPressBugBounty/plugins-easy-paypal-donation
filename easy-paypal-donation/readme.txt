@@ -13,19 +13,18 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Add a PayPal or Stripe Donation Button to your website and start collecting donations today. No Coding Required. Official PayPal & Stripe Partner.
 
 == Description ==
-= Overview =
 
-This plugin will allow you to collect PayPal and Stripe donations on your website.
+###  This plugin allows you to collect PayPal and Stripe donations on your website
 
-Official PayPal & Stripe Partner.
+Do you want to easily collect donations on your site? This is the plugin just for that. Setup is easy to connect to PayPal and Stripe. We're also an official PayPal & Stripe Partner.
 
-Watch this 1 minute video of how the plugin works:
+###  Watch this 1 minute video of how the plugin works:
 
 [youtube https://www.youtube.com/watch?v=YYUsrfnjNN0]
 
 You can place a PayPal or Stripe Donation button anywhere on your site where you want to collect money. Your customers can use their PayPal account or Credit Card (via Stripe) to donate money to you.
 
->**[Check out our demos & Pro version](https://wpplugin.org/downloads/paypal-donation-pro/)**
+>**[Learn more about our Pro version](https://wpplugin.org/downloads/paypal-donation-pro/)**
 
 What makes this donation plugin powerful is its simplicity. Just install the plugin and in just a few minutes customers from around the world can start donating to you.
 
@@ -35,10 +34,7 @@ If you have any problems, questions, or issues about this PayPal plugin then ple
 
 This plugin works with any WordPress theme.
 
-WPPlugin LLC is an offical PayPal & Stripe Partner based in Boulder, Colorado. You can visit WP Plugins website at [wpplugin.org](https://wpplugin.org). Various trademarks held by their respective owners.
-
-
-= PayPal Donation Features =
+###   PayPal & Stripe Donation Features
 
 *	View donations made in your WordPress admin
 *	Button Manager
@@ -56,8 +52,8 @@ WPPlugin LLC is an offical PayPal & Stripe Partner based in Boulder, Colorado. Y
 *	Choose how the PayPal window opens
 *	Setup a dropdown menu to force certain amounts
 
-> #### Accept Donations with PayPal Pro
-> We offer a Pro version of this PayPal plugin for business owners who need more features.<br />
+###  Accept Donations with PayPal & Stripe Pro
+> We offer a Pro version of this PayPal plugin for business owners who need more features.
 >
 > * Offer recurring donations.
 > * Recurring donations can be set up per day, week, month and year.
@@ -68,8 +64,8 @@ WPPlugin LLC is an offical PayPal & Stripe Partner based in Boulder, Colorado. Y
 >
 > [You can learn more about Accept Donations with PayPal Pro here](https://wpplugin.org/downloads/paypal-donation-pro/)
 
-WP Plugin is an offical PayPal Partner. Various trademarks held by their respective owners.
-
+###  About Us
+WPPlugin LLC is an offical PayPal & Stripe Partner based in Boulder, Colorado. You can visit WP Plugins website at [wpplugin.org](https://wpplugin.org). Various trademarks held by their respective owners.
 
 == Installation ==
 
