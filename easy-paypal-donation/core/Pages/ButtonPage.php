@@ -116,6 +116,8 @@ class ButtonPage
 				update_post_meta($post_id, 'wpedon_button_buttonsize', "");
 
 				update_post_meta($post_id, 'wpedon_button_return', sanitize_text_field($_POST['wpedon_button_return']));
+				
+				update_post_meta($post_id, 'wpedon_button_donation_text', sanitize_text_field($_POST['wpedon_button_donation_text']));
 
 				update_post_meta($post_id, 'wpedon_button_scpriceprice', sanitize_text_field($_POST['wpedon_button_scpriceprice']));
 				update_post_meta($post_id, 'wpedon_button_scpriceaname', sanitize_text_field($_POST['wpedon_button_scpriceaname']));
@@ -242,6 +244,8 @@ class ButtonPage
 					update_post_meta($post_id, 'wpedon_button_account', sanitize_text_field($_POST['wpedon_button_account']));
 				}
 				update_post_meta($post_id, 'wpedon_button_return', sanitize_text_field($_POST['wpedon_button_return']));
+				
+				update_post_meta($post_id, 'wpedon_button_donation_text', sanitize_text_field($_POST['wpedon_button_donation_text']));
 
 				update_post_meta($post_id, 'wpedon_button_scpriceprice', sanitize_text_field($_POST['wpedon_button_scpriceprice']));
 				update_post_meta($post_id, 'wpedon_button_scpriceaname', sanitize_text_field($_POST['wpedon_button_scpriceaname']));
@@ -361,6 +365,7 @@ class ButtonPage
 			delete_post_meta($to_delete,'wpedon_button_language');
 			delete_post_meta($to_delete,'wpedon_button_account');
 			delete_post_meta($to_delete,'wpedon_button_return');
+			delete_post_meta($to_delete,'wpedon_button_donation_text');
 			delete_post_meta($to_delete,'wpedon_button_buttonsize');
 			delete_post_meta($to_delete,'wpedon_button_scpriceprice');
 			delete_post_meta($to_delete,'wpedon_button_scpriceaname');

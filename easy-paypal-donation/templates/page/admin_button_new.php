@@ -33,9 +33,9 @@
 						Purpose / Name:
 					</td>
 					<td>
-						<input type="text" name="wpedon_button_name" value="<?php if (isset($_POST['wpedon_button_name'])) {echo esc_attr($_POST['wpedon_button_name']);}?>">
+						<input type="text" required name="wpedon_button_name" value="<?php if (isset($_POST['wpedon_button_name'])) {echo esc_attr($_POST['wpedon_button_name']);}?>">
 					</td>
-					<td> Optional - The purpose of the donation. If blank, customer enters purpose.</td>
+					<td>The purpose of the donation. If blank, customer enters purpose.</td>
 				</tr>
                 <tr>
                     <td>
@@ -60,7 +60,7 @@
 						<input type="number" required name="wpedon_button_price" value="<?php if (isset($_POST['wpedon_button_price'])) {echo esc_attr($_POST['wpedon_button_price']);}?>">
 					</td>
 					<td>
-						Required - Example: 6.99. If using dropdown prices, enter 1. Minimum amount for Stripe is $1.00
+						Required - Example format: 6.99 <b><u>Minimum amount for PayPal & Stripe is $1.00</u></b> If using dropdown fields, enter 1.00 
 					</td>
 				</tr>
 				<tr>
@@ -215,6 +215,17 @@
 					<td><input type="checkbox" name="wpedon_button_enable_currency" value="1" <?php if (isset($_POST['wpedon_button_enable_currency'])) { echo "CHECKED"; } ?>></td>
 					<td>Optional - Show the currency (example: USD) after the amount.</td>
 				</tr>
+				
+				<tr>
+                    <td>Donation Amount Text:</td>
+                    <td>
+                        <input type="text" name="wpedon_button_donation_text"
+                               value="<?php if (isset($_POST['wpedon_button_donation_text'])) { echo esc_attr($_POST['wpedon_button_donation_text']);} ?>">
+                    </td>
+                    <td> Optional - Text for manual donation amounts. Default: Donation Amount
+                    </td>
+                </tr>
+				
 				<tr>
 					<td></td>
 					<td><br/></td>

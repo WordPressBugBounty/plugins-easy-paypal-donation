@@ -79,6 +79,9 @@ function wpedon_shortcode($atts) {
 
 	// show currency
 	$wpedon_button_enable_currency = 	get_post_meta($post_id,'wpedon_button_enable_currency',true);
+	
+	// use a custom donation amount text
+	$wpedon_button_donation_text = 		get_post_meta($post_id,'wpedon_button_donation_text',true);
 
 	// live of test mode
 	if ($value['mode'] == "1") {
@@ -394,7 +397,7 @@ function wpedon_shortcode($atts) {
 
 	// text description title
 	if ($wpedon_button_enable_name == "1" || ($wpedon_button_enable_price == "1" && $wpedon_button_price_type !== 'manual')) {
-		$output .= "<label>";
+		$output .= "<label id='wpedon-$post_id-name-label'>";
 	}
 
 	if ($wpedon_button_enable_name == "1") {
@@ -422,7 +425,9 @@ function wpedon_shortcode($atts) {
 	if ( $wpedon_button_price_type === 'manual' ) {
 		// price input
 		$output .= '<div><br/>';
-		$output .= '<label>' . __( 'Donation amount' ) . " ({$currency})</label>";
+		//$output .= '<label id="wpedon-'.$post_id.'-amount-label">' . __( 'Donation amount' ) . (($wpedon_button_enable_currency == "1") ? " ({$currency})" : '') . '</label>';
+		$output .= '<label id="wpedon-'.$post_id.'-amount-label">' . (isset($wpedon_button_donation_text) && !empty($wpedon_button_donation_text) ? $wpedon_button_donation_text : __( 'Donation Amount' )) . (($wpedon_button_enable_currency == "1") ? " ({$currency})" : '') . '</label>';
+
 		$output .= '<br />';
 		$output .= "<input type='number' min='1' step='any' name='ddm_{$rand_string}' class='wpedon-input' value='{$amount}' />";
 		$output .= "<script>

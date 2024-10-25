@@ -67,9 +67,9 @@
                 <tr>
                     <td>Purpose / Name:</td>
                     <td>
-                        <input type="text" name="wpedon_button_name" value="<?php echo esc_attr($title); ?>">
+                        <input type="text" required name="wpedon_button_name" value="<?php echo esc_attr($title); ?>">
                     </td>
-                    <td> Optional - The purpose of the donation. If blank, customer enters purpose.</td>
+                    <td>The purpose of the donation. If blank, customer enters purpose.</td>
                 </tr>
 	            <?php $price_type = get_post_meta( $post_id, 'wpedon_button_price_type', true ); ?>
                 <tr>
@@ -93,7 +93,7 @@
                         <input type="text" name="wpedon_button_price"
                                value="<?php echo esc_attr(get_post_meta($post_id, 'wpedon_button_price', true)); ?>" />
                     </td>
-                    <td>Required - Example: 6.99. If using dropdown prices, enter 1. Minimum amount for Stripe is $1.00
+                    <td>Required - Example format: 6.99 <b><u>Minimum amount for PayPal & Stripe is $1.00</u></b> If using dropdown fields, enter 1.00
                     </td>
                 </tr>
                 <tr>
@@ -702,6 +702,17 @@
                     </td>
                     <td>Optional - Show the currency (example: USD) after the amount.</td>
                 </tr>
+				
+		        <tr>
+                    <td>Donation Amount Text:</td>
+                    <td>
+                        <input type="text" name="wpedon_button_donation_text"
+                               value="<?php echo esc_attr(get_post_meta($post_id, 'wpedon_button_donation_text', true)); ?>">
+                    </td>
+                    <td> Optional - Text for manual donation amounts. Default: Donation Amount
+                    </td>
+                </tr>		
+
                 <tr>
                     <td></td>
                     <td><br/></td>

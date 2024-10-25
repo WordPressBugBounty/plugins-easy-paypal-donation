@@ -6,7 +6,7 @@ Author URI: https://wpplugin.org
 Requires at least: 3.0
 Tested up to: 6.6
 Requires PHP: 5.4
-Stable tag: 1.4.2
+Stable tag: 1.4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -97,6 +97,15 @@ Yes, there is no limit to the amount of PayPal donations buttons that you can pu
 6. Button Inserter
 
 == Changelog ==
+
+= 1.4.3 =
+* 10/25/24
+* New - Added feature for changeing the "Donation Amount" text. This is a per button setting when using manual donation amounts.
+* New - The Donation title label now has the CSS ID "wpedon-1-name-label" Replace 1 with whatever the button id is. The button id can be found on the Donation "Buttons" page.
+* New - The Donation amount label now has the CSS ID "wpedon-1-amount-label" Replace 1 with whatever the button id is. The button id can be found on the Donation "Buttons" page.
+* Fix - The "Show Currency" toggle now works for manual donation amounts.
+* Change - Default manual donation amount text has been changed from "Donation amount" to "Donation Amount".
+* Change - The Purpose / Name field is now required. It's best price to pass a value since PayPal and Stripe require a value to be set. Passing "No Item Name" isn't ideal.
 
 = 1.4.2 =
 * 5/20/24
