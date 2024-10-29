@@ -12,7 +12,7 @@ Tags: donation, donate, donations, charity, paypal, paypal donation, ecommerce, 
 Author: Scott Paterson
 Author URI: https://wpplugin.org
 License: GPL2
-Version: 1.4.3
+Version: 1.4.4
 */
 
 /*  Copyright 2014-2024 Scott Paterson
@@ -41,7 +41,7 @@ if (file_exists(dirname(__FILE__).'/vendor/autoload.php')) {
 }
 
 define('WPEDON_FREE_DIR_PATH', plugin_dir_path(__FILE__));
-define('WPEDON_FREE_VERSION_NUM', '1.4.3');
+define('WPEDON_FREE_VERSION_NUM', '1.4.4');
 define( 'WPEDON_FREE_PPCP_API', 'https://wpplugin.org/ppcp-wpedon/');
 define( 'WPEDON_FREE_STRIPE_CONNECT_ENDPOINT', 'https://wpplugin.org/stripe-wpedon/connect.php');
 

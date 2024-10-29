@@ -105,7 +105,11 @@ function wpedon_shortcode($atts) {
 	$language_a = get_post_meta($post_id,'wpedon_button_language',true);
 
 	if (!empty($language_a)) { $value['language'] = $language_a; }
-
+	
+	if (!isset($value['language']) || empty($value['language']) || $value['language'] === "default") {
+		$value['language'] = "3";
+	}
+	
 	if ($value['language'] == "1") {
 		$language = "da_DK";
 		$imagea = "https://www.paypal.com/da_DK/i/btn/btn_donate_SM.gif";
