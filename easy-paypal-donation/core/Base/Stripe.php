@@ -224,7 +224,7 @@ class Stripe extends BaseController
             sessionId: '<?php echo sanitize_text_field($_GET['si']); ?>'
           });
         } catch (error) {
-          let rf = '<?php echo sanitize_text_field($_GET['rf']); ?>';
+          let rf = '<?php echo esc_url($_GET['rf']); ?>';
           rf += rf.indexOf('?') !== -1 ? '&' : '?';
           rf += 'wpedon_stripe_success=0';
           window.location.href = rf;
