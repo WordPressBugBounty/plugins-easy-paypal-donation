@@ -231,7 +231,7 @@ class PpcpController extends BaseController
 	function ppcp_disconnect_ajax() {
 		if ( !wp_verify_nonce( $_POST['nonce'], 'wpedon-request' ) ) {
 			wp_send_json_error( [
-				'message' => __( 'The request has not been authenticated. Please reload the page and try again.' )
+				'message' => esc_html__( 'The request has not been authenticated. Please reload the page and try again.', 'easy-paypal-donation' )
 			] );
 		}
 
@@ -254,7 +254,7 @@ class PpcpController extends BaseController
 
 		if ( empty( $onboarding ) ) {
 			wp_send_json_error( [
-				'message' => __( 'An error occurred while processing your account disconnection request. Please contact our support service.' )
+				'message' => esc_html__( 'An error occurred while processing your account disconnection request. Please contact our support service.', 'easy-paypal-donation' )
 			] );
 		}
 
@@ -276,7 +276,7 @@ class PpcpController extends BaseController
 
 		if ( empty( $data['success'] ) ) {
 			wp_send_json_error( [
-				'message' => __( 'An error occurred while processing your account disconnection request. Please contact our support service.' )
+				'message' => esc_html__( 'An error occurred while processing your account disconnection request. Please contact our support service.', 'easy-paypal-donation' )
 			] );
 		}
 
@@ -306,7 +306,7 @@ class PpcpController extends BaseController
 
 		if ( !wp_verify_nonce( $_POST['nonce'], 'wpedon-request' ) ) {
 			wp_send_json_error( [
-				'message' => __( 'The request has not been authenticated. Please reload the page and try again.' )
+				'message' => esc_html__( 'The request has not been authenticated. Please reload the page and try again.', 'easy-paypal-donation' )
 			] );
 		}
 
@@ -317,7 +317,7 @@ class PpcpController extends BaseController
 
 		if ( !$ppcp_connection_data || $ppcp_connection_data['connection_type'] !== 'ppcp' ) {
 			wp_send_json_error( [
-				'message' => __( 'An error occurred.' )
+				'message' => esc_html__( 'An error occurred.', 'easy-paypal-donation' )
 			] );
 		}
 
@@ -657,7 +657,7 @@ class PpcpController extends BaseController
 	public function order_create_ajax() {
 		if ( !wp_verify_nonce( $_POST['nonce'], 'wpedon-frontend-request' ) ) {
 			wp_send_json_error( [
-				'message' => __( 'The request has not been authenticated. Please reload the page and try again.' )
+				'message' => esc_html__( 'The request has not been authenticated. Please reload the page and try again.', 'easy-paypal-donation' )
 			] );
 		}
 
@@ -666,14 +666,14 @@ class PpcpController extends BaseController
 
 		if ( empty( $data['item_price'] ) ) {
 			wp_send_json_error( [
-				'message' => __( 'The value cannot be zero.' )
+				'message' => esc_html__( 'The value cannot be zero.', 'easy-paypal-donation' )
 			] );
 		}
 
 		$ppcp_connection_data = $this->paypal_connection_data($data['button_id']);
 		if ( !$ppcp_connection_data || $ppcp_connection_data['connection_type'] !== 'ppcp' ) {
 			wp_send_json_error( [
-				'message' => __( 'An error occurred.' )
+				'message' => esc_html__( 'An error occurred.', 'easy-paypal-donation' )
 			] );
 		}
 		
@@ -704,7 +704,7 @@ class PpcpController extends BaseController
 
 		if ( empty( $response['success'] ) ) {
 			wp_send_json_error( [
-				'message' => !empty( $response['message'] ) ? $response['message'] : __( "Can't create an order." )
+				'message' => !empty( $response['message'] ) ? $response['message'] : esc_html__( "Can't create an order.", 'easy-paypal-donation' )
 			] );
 		}
 
@@ -731,7 +731,7 @@ class PpcpController extends BaseController
 
 		if ( !wp_verify_nonce( $_POST['nonce'], 'wpedon-frontend-request' ) ) {
 			wp_send_json_error( [
-				'message' => __( 'The request has not been authenticated. Please reload the page and try again.' )
+				'message' => esc_html__( 'The request has not been authenticated. Please reload the page and try again.', 'easy-paypal-donation' )
 			] );
 		}
 
@@ -741,7 +741,7 @@ class PpcpController extends BaseController
 
 		if ( !$ppcp_connection_data || $ppcp_connection_data['connection_type'] !== 'ppcp' ) {
 			wp_send_json_error( [
-				'message' => __( 'An error occurred.' )
+				'message' => esc_html__( 'An error occurred.', 'easy-paypal-donation' )
 			] );
 		}
 
@@ -853,14 +853,14 @@ class PpcpController extends BaseController
 	public function order_refund() {
 		if ( !wp_verify_nonce( $_POST['nonce'], 'wpedon-request' ) || !current_user_can( 'administrator' ) ) {
 			wp_send_json_error( [
-				'message' => __( 'The request has not been authenticated. Please reload the page and try again.' )
+				'message' => esc_html__( 'The request has not been authenticated. Please reload the page and try again.', 'easy-paypal-donation' )
 			] );
 		}
 
 		$order_id = intval( $_POST['order_id'] );
 		if ( get_post_type( $order_id ) !== 'wpplugin_don_order' ) {
 			wp_send_json_error( [
-				'message' => __( 'Donation error.' )
+				'message' => esc_html__( 'Donation error.', 'easy-paypal-donation' )
 			] );
 		}
 
@@ -883,14 +883,14 @@ class PpcpController extends BaseController
 		if ( isset( $data['status'] ) && $data['status'] === 'success' ) {
 			$order = new Order();
 			$order->update( $order_id, ['payment_status' => 'refunded'] );
-			$message = __( 'The donation was refunded.' );
+			$message = esc_html__( 'The donation was refunded.', 'easy-paypal-donation' );
 
 			wp_send_json_success( [
 				'message' => $message
 			] );
 		} else {
 			wp_send_json_error( [
-				'message' => __( 'Can\'t refund the donation.' )
+				'message' => esc_html__( 'Can\'t refund the donation.', 'easy-paypal-donation' )
 			] );
 		}
 	}

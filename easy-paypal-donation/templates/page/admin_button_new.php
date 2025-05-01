@@ -4,15 +4,15 @@
 			<tr>
 				<td valign="bottom" width="85%">
 					<br/>
-					<span style="font-size:20pt;">New Donation Button</span>
+					<span style="font-size:20pt;"><?php _e('New Donation Button', 'easy-paypal-donation'); ?></span>
 				</td>
 				<td valign="bottom">
 					<input type="submit" class="button-primary" style="font-size: 14px;height: 30px;float: right;"
-					       value="Save PayPal & Stripe Donation Button">
+					       value="<?php _e('Save PayPal & Stripe Donation Button', 'easy-paypal-donation'); ?>">
 				</td>
 				<td valign="bottom">
 					<a href="<?= get_admin_url(null, 'admin.php?page=wpedon_buttons'); ?>" class="button-secondary"
-					   style="font-size: 14px;height: 30px;float: right;">Cancel</a>
+					   style="font-size: 14px;height: 30px;float: right;"><?php _e('Cancel', 'easy-paypal-donation'); ?></a>
 				</td>
 			</tr>
 		</table>
@@ -24,54 +24,54 @@
 		<div style="background-color:#fff;padding:8px;border: 1px solid #CCCCCC;"><br/>
 			<table>
 				<tr>
-					<td><b>Main</b></td>
+					<td><b><?php _e('Main', 'easy-paypal-donation'); ?></b></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td>
-						Purpose / Name:
+						<?php _e('Purpose / Name:', 'easy-paypal-donation'); ?>
 					</td>
 					<td>
 						<input type="text" required name="wpedon_button_name" value="<?php if (isset($_POST['wpedon_button_name'])) {echo esc_attr($_POST['wpedon_button_name']);}?>">
 					</td>
-					<td>The purpose of the donation. If blank, customer enters purpose.</td>
+					<td><?php _e('The purpose of the donation. If blank, customer enters purpose.', 'easy-paypal-donation'); ?></td>
 				</tr>
                 <tr>
                     <td>
-                        Donation Amount Type:
+                        <?php _e('Donation Amount Type:', 'easy-paypal-donation'); ?>
                     </td>
                     <td>
                         <label>
-                            <input type="radio" name="wpedon_button_price_type" value="fixed" checked /> Fixed value
+                            <input type="radio" name="wpedon_button_price_type" value="fixed" checked /> <?php _e('Fixed value', 'easy-paypal-donation'); ?>
                         </label>
 
                         <label>
-                            <input type="radio" name="wpedon_button_price_type" value="manual" /> Manual entry
+                            <input type="radio" name="wpedon_button_price_type" value="manual" /> <?php _e('Manual entry', 'easy-paypal-donation'); ?>
                         </label>
                     </td>
                     <td></td>
                 </tr>
 				<tr>
 					<td>
-						Donation Amount<span id="wpedon-amount-label" style="display:none;"> (default)</span>:
+						<?php _e('Donation Amount', 'easy-paypal-donation'); ?><span id="wpedon-amount-label" style="display:none;"><?php _e(' (default)', 'easy-paypal-donation'); ?></span>:
 					</td>
 					<td>
 						<input type="number" required name="wpedon_button_price" value="<?php if (isset($_POST['wpedon_button_price'])) {echo esc_attr($_POST['wpedon_button_price']);}?>">
 					</td>
 					<td>
-						Required - Example format: 6.99 <b><u>Minimum amount for PayPal & Stripe is $1.00</u></b> If using dropdown fields, enter 1.00 
+						<?php _e('Required - Example format: 6.99', 'easy-paypal-donation'); ?> <b><u><?php _e('Minimum amount for PayPal & Stripe is $1.00', 'easy-paypal-donation'); ?></u></b> <?php _e('If using dropdown fields, enter 1.00', 'easy-paypal-donation'); ?> 
 					</td>
 				</tr>
 				<tr>
 					<td>
-						Donation ID:
+						<?php _e('Donation ID:', 'easy-paypal-donation'); ?>
 					</td>
 					<td>
 						<input type="text" name="wpedon_button_id" value="<?php if (isset($_POST['wpedon_button_id'])) {echo esc_attr($_POST['wpedon_button_id']);} ?>">
 					</td>
 					<td>
-						Optional - Example: S12T-Gec-RS.
+						<?php _e('Optional - Example: S12T-Gec-RS.', 'easy-paypal-donation'); ?>
 					</td>
 				</tr>
 				<tr>
@@ -80,7 +80,7 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td><b>Language & Currency</b></td>
+					<td><b><?php _e('Language & Currency', 'easy-paypal-donation'); ?></b></td>
 					<td></td>
 					<td></td>
 				</tr>
@@ -91,35 +91,35 @@
 				</tr>
 				<tr>
 					<td>
-						<b>Language:</b>
+						<b><?php _e('Language:', 'easy-paypal-donation'); ?></b>
 					</td>
 					<td>
 						<select name="wpedon_button_language" style="width: 190px">
 							<?php $wpedon_button_language = isset($_POST['wpedon_button_language']) ? sanitize_text_field($_POST['wpedon_button_language']) : -1; ?>
-							<option <?php if ($wpedon_button_language == "0") { echo "SELECTED";} ?> value="0">Default Language</option>
-							<option <?php if ($wpedon_button_language == "1") { echo "SELECTED";} ?> value="1">Danish</option>
-							<option <?php if ($wpedon_button_language == "2") { echo "SELECTED"; } ?> value="2">Dutch</option>
-							<option <?php if ($wpedon_button_language == "3") { echo "SELECTED"; } ?> value="3">English</option>
-							<option <?php if ($wpedon_button_language == "20") { echo "SELECTED"; } ?> value="20">English - UK</option>
-							<option <?php if ($wpedon_button_language == "4") {  echo "SELECTED"; } ?> value="4">French</option>
-							<option <?php if ($wpedon_button_language == "5") { echo "SELECTED"; } ?> value="5">German</option>
-							<option <?php if ($wpedon_button_language == "6") { echo "SELECTED"; } ?> value="6">Hebrew</option>
-							<option <?php if ($wpedon_button_language == "7") { echo "SELECTED"; } ?> value="7">Italian</option>
-							<option <?php if ($wpedon_button_language == "8") { echo "SELECTED"; } ?> value="8">Japanese</option>
-							<option <?php if ($wpedon_button_language == "9") { echo "SELECTED"; } ?> value="9">Norwgian</option>
-							<option <?php if ($wpedon_button_language == "10") { echo "SELECTED"; } ?> value="10">Polish</option>
-							<option <?php if ($wpedon_button_language == "11") { echo "SELECTED";} ?> value="11">Portuguese</option>
-							<option <?php if ($wpedon_button_language == "12") { echo "SELECTED"; } ?> value="12">Russian</option>
-							<option <?php if ($wpedon_button_language == "13") { echo "SELECTED"; } ?> value="13">Spanish</option>
-							<option <?php if ($wpedon_button_language == "14") { echo "SELECTED"; } ?> value="14">Swedish</option>
-							<option <?php if ($wpedon_button_language == "15") { echo "SELECTED"; } ?> value="15">Simplified Chinese -China only</option>
-							<option <?php if ($wpedon_button_language == "16") { echo "SELECTED"; } ?> value="16">Traditional Chinese - Hong Kong only</option>
-							<option <?php if ($wpedon_button_language == "17") { echo "SELECTED"; } ?> value="17">Traditional Chinese - Taiwan only</option>
-							<option <?php if ($wpedon_button_language == "18") { echo "SELECTED"; } ?> value="18">Turkish</option>
-							<option <?php if ($wpedon_button_language == "19") { echo "SELECTED"; } ?> value="19">Thai</option>
+							<option <?php if ($wpedon_button_language == "0") { echo "SELECTED";} ?> value="0"><?php _e('Default Language', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "1") { echo "SELECTED";} ?> value="1"><?php _e('Danish', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "2") { echo "SELECTED"; } ?> value="2"><?php _e('Dutch', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "3") { echo "SELECTED"; } ?> value="3"><?php _e('English', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "20") { echo "SELECTED"; } ?> value="20"><?php _e('English - UK', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "4") {  echo "SELECTED"; } ?> value="4"><?php _e('French', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "5") { echo "SELECTED"; } ?> value="5"><?php _e('German', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "6") { echo "SELECTED"; } ?> value="6"><?php _e('Hebrew', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "7") { echo "SELECTED"; } ?> value="7"><?php _e('Italian', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "8") { echo "SELECTED"; } ?> value="8"><?php _e('Japanese', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "9") { echo "SELECTED"; } ?> value="9"><?php _e('Norwegian', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "10") { echo "SELECTED"; } ?> value="10"><?php _e('Polish', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "11") { echo "SELECTED";} ?> value="11"><?php _e('Portuguese', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "12") { echo "SELECTED"; } ?> value="12"><?php _e('Russian', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "13") { echo "SELECTED"; } ?> value="13"><?php _e('Spanish', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "14") { echo "SELECTED"; } ?> value="14"><?php _e('Swedish', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "15") { echo "SELECTED"; } ?> value="15"><?php _e('Simplified Chinese -China only', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "16") { echo "SELECTED"; } ?> value="16"><?php _e('Traditional Chinese - Hong Kong only', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "17") { echo "SELECTED"; } ?> value="17"><?php _e('Traditional Chinese - Taiwan only', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "18") { echo "SELECTED"; } ?> value="18"><?php _e('Turkish', 'easy-paypal-donation'); ?></option>
+							<option <?php if ($wpedon_button_language == "19") { echo "SELECTED"; } ?> value="19"><?php _e('Thai', 'easy-paypal-donation'); ?></option>
 						</select>
 					</td>
-					<td>Optional - Will override setttings page value.</td>
+					<td><?php _e('Optional - Will override settings page value.', 'easy-paypal-donation'); ?></td>
 					<td></td>
 				</tr>
 				<tr>
@@ -129,39 +129,39 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td><b>Currency:</b></td>
+					<td><b><?php _e('Currency:', 'easy-paypal-donation'); ?></b></td>
 					<td>
 						<select name="wpedon_button_currency" style="width: 190px">
 							<?php $wpedon_button_currency = isset($_POST['wpedon_button_currency']) ? sanitize_text_field($_POST['wpedon_button_currency']) : -1; ?>
-							<option <?php if($wpedon_button_currency == "0") { echo "SELECTED"; } ?> value="0">Default Currency</option>
-							<option <?php if($wpedon_button_currency == "1") { echo "SELECTED"; } ?> value="1">Australian Dollar - AUD</option>
-							<option <?php if($wpedon_button_currency == "2") { echo "SELECTED"; } ?> value="2">Brazilian Real - BRL</option>
-							<option <?php if($wpedon_button_currency == "3") { echo "SELECTED"; } ?> value="3">Canadian Dollar - CAD</option>
-							<option <?php if($wpedon_button_currency == "4") { echo "SELECTED"; } ?> value="4">Czech Koruna - CZK</option>
-							<option <?php if($wpedon_button_currency == "5") { echo "SELECTED"; } ?> value="5">Danish Krone - DKK</option>
-							<option <?php if($wpedon_button_currency == "6") { echo "SELECTED"; } ?> value="6">Euro - EUR</option>
-							<option <?php if($wpedon_button_currency == "7") { echo "SELECTED"; } ?> value="7">Hong Kong Dollar - HKD</option>
-							<option <?php if($wpedon_button_currency == "8") { echo "SELECTED"; } ?> value="8">Hungarian Forint - HUF</option>
-							<option <?php if($wpedon_button_currency == "9") { echo "SELECTED"; } ?> value="9">Israeli New Sheqel - ILS</option>
-							<option <?php if($wpedon_button_currency == "10") { echo "SELECTED"; } ?> value="10">Japanese Yen - JPY</option>
-							<option <?php if($wpedon_button_currency == "11") { echo "SELECTED"; } ?> value="11">Malaysian Ringgit - MYR</option>
-							<option <?php if($wpedon_button_currency == "12") { echo "SELECTED"; } ?> value="12">Mexican Peso - MXN</option>
-							<option <?php if($wpedon_button_currency == "13") { echo "SELECTED"; } ?> value="13">Norwegian Krone - NOK</option>
-							<option <?php if($wpedon_button_currency == "14") { echo "SELECTED"; } ?> value="14">New Zealand Dollar - NZD</option>
-							<option <?php if($wpedon_button_currency == "15") { echo "SELECTED"; } ?> value="15">Philippine Peso - PHP</option>
-							<option <?php if($wpedon_button_currency == "16") { echo "SELECTED"; } ?> value="16">Polish Zloty - PLN</option>
-							<option <?php if($wpedon_button_currency == "17") { echo "SELECTED"; } ?> value="17">Pound Sterling - GBP</option>
-							<option <?php if($wpedon_button_currency == "18") { echo "SELECTED"; } ?> value="18">Russian Ruble - RUB</option>
-							<option <?php if($wpedon_button_currency == "19") { echo "SELECTED"; } ?> value="19">Singapore Dollar - SGD</option>
-							<option <?php if($wpedon_button_currency == "20") { echo "SELECTED"; } ?> value="20">Swedish Krona - SEK</option>
-							<option <?php if($wpedon_button_currency == "21") { echo "SELECTED"; } ?> value="21">Swiss Franc - CHF</option>
-							<option <?php if($wpedon_button_currency == "22") { echo "SELECTED"; } ?> value="22">Taiwan New Dollar - TWD</option>
-							<option <?php if($wpedon_button_currency == "23") { echo "SELECTED"; } ?> value="23">Thai Baht - THB</option>
-							<option <?php if($wpedon_button_currency == "24") { echo "SELECTED"; } ?> value="24">Turkish Lira - TRY</option>
-							<option <?php if($wpedon_button_currency == "25") { echo "SELECTED"; } ?> value="25">U.S. Dollar - USD</option>
+							<option <?php if($wpedon_button_currency == "0") { echo "SELECTED"; } ?> value="0"><?php _e('Default Currency', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "1") { echo "SELECTED"; } ?> value="1"><?php _e('Australian Dollar - AUD', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "2") { echo "SELECTED"; } ?> value="2"><?php _e('Brazilian Real - BRL', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "3") { echo "SELECTED"; } ?> value="3"><?php _e('Canadian Dollar - CAD', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "4") { echo "SELECTED"; } ?> value="4"><?php _e('Czech Koruna - CZK', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "5") { echo "SELECTED"; } ?> value="5"><?php _e('Danish Krone - DKK', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "6") { echo "SELECTED"; } ?> value="6"><?php _e('Euro - EUR', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "7") { echo "SELECTED"; } ?> value="7"><?php _e('Hong Kong Dollar - HKD', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "8") { echo "SELECTED"; } ?> value="8"><?php _e('Hungarian Forint - HUF', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "9") { echo "SELECTED"; } ?> value="9"><?php _e('Israeli New Sheqel - ILS', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "10") { echo "SELECTED"; } ?> value="10"><?php _e('Japanese Yen - JPY', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "11") { echo "SELECTED"; } ?> value="11"><?php _e('Malaysian Ringgit - MYR', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "12") { echo "SELECTED"; } ?> value="12"><?php _e('Mexican Peso - MXN', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "13") { echo "SELECTED"; } ?> value="13"><?php _e('Norwegian Krone - NOK', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "14") { echo "SELECTED"; } ?> value="14"><?php _e('New Zealand Dollar - NZD', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "15") { echo "SELECTED"; } ?> value="15"><?php _e('Philippine Peso - PHP', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "16") { echo "SELECTED"; } ?> value="16"><?php _e('Polish Zloty - PLN', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "17") { echo "SELECTED"; } ?> value="17"><?php _e('Pound Sterling - GBP', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "18") { echo "SELECTED"; } ?> value="18"><?php _e('Russian Ruble - RUB', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "19") { echo "SELECTED"; } ?> value="19"><?php _e('Singapore Dollar - SGD', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "20") { echo "SELECTED"; } ?> value="20"><?php _e('Swedish Krona - SEK', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "21") { echo "SELECTED"; } ?> value="21"><?php _e('Swiss Franc - CHF', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "22") { echo "SELECTED"; } ?> value="22"><?php _e('Taiwan New Dollar - TWD', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "23") { echo "SELECTED"; } ?> value="23"><?php _e('Thai Baht - THB', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "24") { echo "SELECTED"; } ?> value="24"><?php _e('Turkish Lira - TRY', 'easy-paypal-donation'); ?></option>
+							<option <?php if($wpedon_button_currency == "25") { echo "SELECTED"; } ?> value="25"><?php _e('U.S. Dollar - USD', 'easy-paypal-donation'); ?></option>
 						</select>
 					</td>
-					<td>Optional - Will override setttings page value.</td>
+					<td><?php _e('Optional - Will override settings page value.', 'easy-paypal-donation'); ?></td>
 					<td></td>
 				</tr>
 				<tr>
@@ -170,59 +170,59 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td><b>Gateways</b></td>
+					<td><b><?php _e('Gateways', 'easy-paypal-donation'); ?></b></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr class="wpedon-product-connection-row">
-					<td>PayPal Account:</td>
-					<td>You will be able to connect your PayPal account after saving this button</td>
+					<td><?php _e('PayPal Account:', 'easy-paypal-donation'); ?></td>
+					<td><?php _e('You will be able to connect your PayPal account after saving this button', 'easy-paypal-donation'); ?></td>
 					<td></td>
 				</tr>
 				<tr class="wpedon-product-connection-row">
-					<td>Stripe Account:</td>
-					<td>You will be able to connect your Stripe account after saving this button</td>
+					<td><?php _e('Stripe Account:', 'easy-paypal-donation'); ?></td>
+					<td><?php _e('You will be able to connect your Stripe account after saving this button', 'easy-paypal-donation'); ?></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td><b>Other</b></td>
+					<td><b><?php _e('Other', 'easy-paypal-donation'); ?></b></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td>Return URL:</td>
+					<td><?php _e('Return URL:', 'easy-paypal-donation'); ?></td>
 					<td>
 						<input type="text" name="wpedon_button_return" value="<?php if (isset($_POST['wpedon_button_return'])) { echo esc_attr($_POST['wpedon_button_return']);} ?>">
 					</td>
-					<td> Optional - Will override setttings page value.</td>
+					<td><?php _e('Optional - Will override settings page value.', 'easy-paypal-donation'); ?></td>
 				</tr>
 				<tr>
 					<td>
-						Show Purpose / Name:
+						<?php _e('Show Purpose / Name:', 'easy-paypal-donation'); ?>
 					</td>
 					<td><input type="checkbox" name="wpedon_button_enable_name" value="1" <?php if (isset($_POST['wpedon_button_enable_name'])) {echo "CHECKED";} ?>></td>
-					<td>Optional - Show the purpose / name above the button.</td>
+					<td><?php _e('Optional - Show the purpose / name above the button.', 'easy-paypal-donation'); ?></td>
 				</tr>
 				<tr>
 					<td>
-						Show Donation Amount:
+						<?php _e('Show Donation Amount:', 'easy-paypal-donation'); ?>
 					</td>
 					<td><input type="checkbox" name="wpedon_button_enable_price" value="1" <?php if (isset($_POST['wpedon_button_enable_price'])) { echo "CHECKED"; } ?>></td>
-					<td>Optional - Show the donation amount above the button.</td>
+					<td><?php _e('Optional - Show the donation amount above the button.', 'easy-paypal-donation'); ?></td>
 				</tr>
 				<tr>
-					<td>Show Currency:</td>
+					<td><?php _e('Show Currency:', 'easy-paypal-donation'); ?></td>
 					<td><input type="checkbox" name="wpedon_button_enable_currency" value="1" <?php if (isset($_POST['wpedon_button_enable_currency'])) { echo "CHECKED"; } ?>></td>
-					<td>Optional - Show the currency (example: USD) after the amount.</td>
+					<td><?php _e('Optional - Show the currency (example: USD) after the amount.', 'easy-paypal-donation'); ?></td>
 				</tr>
 				
 				<tr>
-                    <td>Donation Amount Text:</td>
+                    <td><?php _e('Donation Amount Text:', 'easy-paypal-donation'); ?></td>
                     <td>
                         <input type="text" name="wpedon_button_donation_text"
                                value="<?php if (isset($_POST['wpedon_button_donation_text'])) { echo esc_attr($_POST['wpedon_button_donation_text']);} ?>">
                     </td>
-                    <td> Optional - Text for manual donation amounts. Default: Donation Amount
+                    <td> <?php _e('Optional - Text for manual donation amounts. Default: Donation Amount', 'easy-paypal-donation'); ?>
                     </td>
                 </tr>
 				
@@ -232,13 +232,13 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td><b>Dropdown Menus</b> <br/><br/></td>
+					<td><b><?php _e('Dropdown Menus', 'easy-paypal-donation'); ?></b> <br/><br/></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td>
-						Amount Dropdown Menu:
+						<?php _e('Amount Dropdown Menu:', 'easy-paypal-donation'); ?>
 					</td>
 					<td></td>
 					<td></td>
@@ -247,15 +247,15 @@
 					<td colspan="3">
 						<table>
 							<tr>
-								<td>Amount Menu Name: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</td>
+								<td><?php _e('Amount Menu Name:', 'easy-paypal-donation'); ?> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</td>
 								<td>
 									<input type="text" name="wpedon_button_scpriceprice" id="wpedon_button_scpriceprice"
 						           value="<?php if (isset($_POST['wpedon_button_scpriceprice'])) { echo esc_attr($_POST['wpedon_button_scpriceprice']); } ?>">
 								</td>
-								<td>Optional, but required to show menu - show an amount dropdown menu.</td>
+								<td><?php _e('Optional, but required to show menu - show an amount dropdown menu.', 'easy-paypal-donation'); ?></td>
 							</tr>
 							<tr>
-								<td>Option / Amount 1:</td>
+								<td><?php _e('Option / Amount 1:', 'easy-paypal-donation'); ?></td>
 								<td>
 									<input type="text" name="wpedon_button_scpriceaname" id="wpedon_button_scpriceaname"
 									       value="<?php if (isset($_POST['wpedon_button_scpriceaname'])) {
@@ -269,11 +269,11 @@
 														echo esc_attr($_POST['wpedon_button_scpricea']);
 													} ?>">
 								</td>
-								<td>Optional</td>
+								<td><?php _e('Optional', 'easy-paypal-donation'); ?></td>
 							</tr>
 							<tr>
 								<td>
-									Option / Amount 2:
+									<?php _e('Option / Amount 2:', 'easy-paypal-donation'); ?>
 								</td>
 								<td>
 									<input type="text" name="wpedon_button_scpricebname" id="wpedon_button_scpricebname"
@@ -287,11 +287,11 @@
 									if (isset($_POST['wpedon_button_scpriceb'])) {
 										echo esc_attr($_POST['wpedon_button_scpriceb']);
 									} ?>"></td>
-								<td> Optional</td>
+								<td> <?php _e('Optional', 'easy-paypal-donation'); ?></td>
 							</tr>
 							<tr>
 								<td>
-									Option / Amount 3:
+									<?php _e('Option / Amount 3:', 'easy-paypal-donation'); ?>
 								</td>
 								<td>
 									<input type="text" name="wpedon_button_scpricecname" id="wpedon_button_scpricecname"
@@ -306,10 +306,10 @@
 										echo esc_attr($_POST['wpedon_button_scpricec']);
 									} ?>">
 								</td>
-								<td>Optional</td>
+								<td><?php _e('Optional', 'easy-paypal-donation'); ?></td>
 							</tr>
 							<tr>
-								<td>Option / Amount 4:</td>
+								<td><?php _e('Option / Amount 4:', 'easy-paypal-donation'); ?></td>
 								<td><input type="text" name="wpedon_button_scpricedname" id="wpedon_button_scpricedname"
 								           value="<?php
 								           if (isset($_POST['wpedon_button_scpricedname'])) {
@@ -322,10 +322,10 @@
 										echo esc_attr($_POST['wpedon_button_scpriced']);
 									} ?>">
 								</td>
-								<td>Optional</td>
+								<td><?php _e('Optional', 'easy-paypal-donation'); ?></td>
 							</tr>
 							<tr>
-								<td>Option / Amount 5:</td>
+								<td><?php _e('Option / Amount 5:', 'easy-paypal-donation'); ?></td>
 								<td><input type="text" name="wpedon_button_scpriceename" id="wpedon_button_scpriceename"
 								           value="<?php
 								           if (isset($_POST['wpedon_button_scpriceename'])) {
@@ -337,10 +337,10 @@
 									if (isset($_POST['wpedon_button_scpricee'])) {
 										echo esc_attr($_POST['wpedon_button_scpricee']);
 									} ?>"></td>
-								<td> Optional</td>
+								<td> <?php _e('Optional', 'easy-paypal-donation'); ?></td>
 							</tr>
 							<tr>
-								<td>Option / Amount 6:</td>
+								<td><?php _e('Option / Amount 6:', 'easy-paypal-donation'); ?></td>
 								<td>
 									<input type="text" name="wpedon_button_scpricefname" id="wpedon_button_scpricefname"
 									       value="<?php
@@ -353,10 +353,10 @@
 									if (isset($_POST['wpedon_button_scpricef'])) {
 										echo esc_attr($_POST['wpedon_button_scpricef']);
 									} ?>"></td>
-								<td>Optional</td>
+								<td><?php _e('Optional', 'easy-paypal-donation'); ?></td>
 							</tr>
 							<tr>
-								<td>Option / Amount 7:</td>
+								<td><?php _e('Option / Amount 7:', 'easy-paypal-donation'); ?></td>
 								<td>
 									<input type="text" name="wpedon_button_scpricegname" id="wpedon_button_scpricegname"
 									       value="<?php
@@ -370,11 +370,11 @@
 										echo esc_attr($_POST['wpedon_button_scpriceg']);
 									} ?>">
 								</td>
-								<td>Optional</td>
+								<td><?php _e('Optional', 'easy-paypal-donation'); ?></td>
 							</tr>
 							<tr>
 								<td>
-									Option / Amount 8:
+									<?php _e('Option / Amount 8:', 'easy-paypal-donation'); ?>
 								</td>
 								<td><input type="text" name="wpedon_button_scpricehname" id="wpedon_button_scpricehname"
 								           value="<?php
@@ -388,10 +388,10 @@
 										echo esc_attr($_POST['wpedon_button_scpriceh']);
 									} ?>">
 								</td>
-								<td> Optional</td>
+								<td> <?php _e('Optional', 'easy-paypal-donation'); ?></td>
 							</tr>
 							<tr>
-								<td>Option / Amount 9:</td>
+								<td><?php _e('Option / Amount 9:', 'easy-paypal-donation'); ?></td>
 								<td>
 									<input type="text" name="wpedon_button_scpriceiname" id="wpedon_button_scpriceiname"
 									       value="<?php
@@ -405,10 +405,10 @@
 										echo esc_attr($_POST['wpedon_button_scpricei']);
 									} ?>">
 								</td>
-								<td>Optional</td>
+								<td><?php _e('Optional', 'easy-paypal-donation'); ?></td>
 							</tr>
 							<tr>
-								<td>Option / Amount 10:</td>
+								<td><?php _e('Option / Amount 10:', 'easy-paypal-donation'); ?></td>
 								<td>
 									<input type="text" name="wpedon_button_scpricejname" id="wpedon_button_scpricejname"
 									       value="<?php
@@ -422,7 +422,7 @@
 										echo esc_attr($_POST['wpedon_button_scpricej']);
 									} ?>">
 								</td>
-								<td>Optional</td>
+								<td><?php _e('Optional', 'easy-paypal-donation'); ?></td>
 							</tr>
 						</table>
 						<?php wp_nonce_field('new_wpedon_button'); ?>

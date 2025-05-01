@@ -21,10 +21,10 @@
 		<tr>
 			<td>
 				<br />
-				<span style="font-size:20pt;">Easy Donation Buttons</span>
+				<span style="font-size:20pt;"><?php _e('Easy Donation Buttons', 'easy-paypal-donation'); ?></span>
 			</td>
 			<td valign="bottom">
-				<a href="?page=wpedon_buttons&action=new" name='btn2' class='button-primary' style='font-size: 14px;height: 30px;float: right;'>New PayPal Donation Button</a>
+				<a href="?page=wpedon_buttons&action=new" name='btn2' class='button-primary' style='font-size: 14px;height: 30px;float: right;'><?php _e('New PayPal Donation Button', 'easy-paypal-donation'); ?></a>
 			</td>
 		</tr>
 	</table>
@@ -33,19 +33,19 @@
 	if (isset($_GET['message'])) {
 		switch ($_GET['message']) {
 			case 'created':
-				echo "<div class='updated'><p>Button created.</p></div>";
+				echo "<div class='updated'><p>" . __('Button created.', 'easy-paypal-donation') . "</p></div>";
 				break;
 			case 'deleted':
-				echo "<div class='updated'><p>Button(s) deleted.</p></div>";
+				echo "<div class='updated'><p>" . __('Button(s) deleted.', 'easy-paypal-donation') . "</p></div>";
 				break;
 			case 'nothing':
-				echo "<div class='error'><p>No action selected.</p></div>";
+				echo "<div class='error'><p>" . __('No action selected.', 'easy-paypal-donation') . "</p></div>";
 				break;
 			case 'nothing_deleted':
-				echo "<div class='error'><p>Nothing selected to delete.</p></div>";
+				echo "<div class='error'><p>" . __('Nothing selected to delete.', 'easy-paypal-donation') . "</p></div>";
 				break;
 			case 'error':
-				echo "<div class='error'><p>An error occured while processing the query. Please try again.</p></div>";
+				echo "<div class='error'><p>" . __('An error occured while processing the query. Please try again.', 'easy-paypal-donation') . "</p></div>";
 		}
 	} ?>
 

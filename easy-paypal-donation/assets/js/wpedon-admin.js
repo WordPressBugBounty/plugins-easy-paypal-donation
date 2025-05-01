@@ -9,41 +9,14 @@
             }
         });
 
+        // Auto-submit form when Stripe mode is changed
         $('#wpedon-stripe-connect-table').on('change', 'input[name="mode_stripe"]', function(){
-            const val = parseInt($(this).val());
-            if (val !== 1 && val !== 2) return false;
-
-            $('#stripe-connection-status-html').css({'opacity': 0.5});
-            $.post(wpedon.ajaxUrl, {
-                action: 'wpedon_stripe_connect_mode_change',
-                nonce: wpedon.nonce,
-                val: val
-            }, function(response){
-                if (response.data.statusHtml) {
-                    $('#stripe-connection-status-html').html(response.data.statusHtml).css({'opacity': 1});
-                }
-            });
+            $(this).closest('form').submit();
         });
 
-        $('.wpedon-product-connection-row').on('change', '[name="mode_stripe"]', function(){
-            const button_id = parseInt($(this).parents('.wpedon-product-connection-row').attr('data-id'));
-
-            let val = parseInt($(this).val());
-            if (val !== 1 && val !== 2) {
-                val = 0;
-            }
-
-            $('#stripe-connection-status-html').css({'opacity': 0.5});
-            $.post(wpedon.ajaxUrl, {
-                action: 'wpedon_stripe_connect_mode_change',
-                nonce: wpedon.nonce,
-                val: val,
-                button_id: button_id
-            }, function(response){
-                if (response.data.statusHtml) {
-                    $('#stripe-connection-status-html').html(response.data.statusHtml).css({'opacity': 1});
-                }
-            });
+        // Auto-submit form when PayPal mode is changed
+        $('.wpedon-paypal-mode').on('change', 'input[name="mode"]', function(){
+            $(this).closest('form').submit();
         });
 
         function setOnboardingUrl() {

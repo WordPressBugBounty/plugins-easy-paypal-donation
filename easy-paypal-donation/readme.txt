@@ -4,9 +4,9 @@ Donate link: https://wpplugin.org/donate/
 Tags: donation, donate, charity, paypal, ecommerce
 Author URI: https://wpplugin.org
 Requires at least: 3.0
-Tested up to: 6.7
+Tested up to: 6.8
 Requires PHP: 5.4
-Stable tag: 1.4.5
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,7 +43,8 @@ This plugin works with any WordPress theme.
 *	View donations made in your WordPress admin
 *	Button Manager
 *   Page / Post Button shortcode Inserter
-*	Donation Widget
+*	Donation Widget for donors
+*   Dashboard admin widget to view recent sales
 *   Built in support for 18 languages (PayPal currently supports 18 languages)
 *   Built in support 25 currencies (PayPal currently supports 25 currencies)
 *	Each button can have its own language and currency
@@ -97,6 +98,13 @@ Yes, there is no limit to the amount of PayPal donations buttons that you can pu
 6. Button Inserter
 
 == Changelog ==
+
+= 1.5 =
+* 4/30/25
+* New - The code is now correctly setup for plugin translation into different languages.
+* New - Added an admin dashboard widget to view recent donations.
+* New - Added deactivation survey.
+* Fix - Fixed small security issue.
 
 = 1.4.5 =
 * 2/18/25

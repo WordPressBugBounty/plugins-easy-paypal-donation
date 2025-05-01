@@ -22,6 +22,56 @@ class OrderTable extends WP_List_Table
 	}
 
 	/**
+	 * Get payment status views
+	 * @return array
+	 */
+	function get_views() {
+		$views = array();
+		$current = isset($_GET['payment_status']) ? sanitize_text_field($_GET['payment_status']) : 'all';
+
+		// Get all payment statuses
+		$statuses = array(
+			'all' => __('All', 'easy-paypal-donation'),
+			'completed' => __('Completed', 'easy-paypal-donation'),
+			'pending' => __('Pending', 'easy-paypal-donation'),
+			'refunded' => __('Refunded', 'easy-paypal-donation'),
+			'failed' => __('Failed', 'easy-paypal-donation')
+		);
+
+		// Get count for each status
+		$counts = array();
+		$all_posts = get_posts(array(
+			'post_type' => 'wpplugin_don_order',
+			'posts_per_page' => -1
+		));
+
+		foreach ($all_posts as $post) {
+			$order_meta = Order::getOrderMeta($post->ID);
+			$status = isset($order_meta['wpedon_button_payment_status']) ? $order_meta['wpedon_button_payment_status'] : '';
+			if (!isset($counts[$status])) {
+				$counts[$status] = 0;
+			}
+			$counts[$status]++;
+		}
+
+		// Create view links
+		foreach ($statuses as $status => $label) {
+			$count = ($status === 'all') ? count($all_posts) : ($counts[$status] ?? 0);
+			$class = ($current === $status) ? ' class="current"' : '';
+			$url = add_query_arg('payment_status', $status);
+			$views[$status] = sprintf(
+				'<a href="%s"%s>%s <span class="count">(%d)</span></a>',
+				esc_url($url),
+				$class,
+				$label,
+				$count
+			);
+		}
+
+		return $views;
+	}
+
+	/**
 	 * get data
 	 * @return array
 	 */
@@ -35,6 +85,18 @@ class OrderTable extends WP_List_Table
 			'order' => 'DESC',
 			'orderby' => 'ID'
 		);
+
+		// Add payment status filter if set
+		$payment_status = isset($_GET['payment_status']) ? sanitize_text_field($_GET['payment_status']) : '';
+		if ($payment_status && $payment_status !== 'all') {
+			$args['meta_query'] = array(
+				array(
+					'key' => 'wpedon_button_payment_status',
+					'value' => $payment_status,
+					'compare' => '='
+				)
+			);
+		}
 
 		$posts = get_posts($args);
 
@@ -110,8 +172,8 @@ class OrderTable extends WP_List_Table
 		$delete_url = wp_nonce_url($delete_bare, 'bulk-' . $this->_args['plural']);
 
 		$actions = array(
-			'edit' => '<a href="' . esc_url($view_url) . '">View</a>',
-			'delete' => '<a href="' . esc_url($delete_url) . '">Delete</a>'
+			'edit' => '<a href="' . esc_url($view_url) . '">' . esc_html__('View', 'easy-paypal-donation') . '</a>',
+			'delete' => '<a href="' . esc_url($delete_url) . '">' . esc_html__('Delete', 'easy-paypal-donation') . '</a>'
 		);
 
 		return sprintf('%1$s %2$s',
@@ -142,10 +204,10 @@ class OrderTable extends WP_List_Table
 	{
 		$columns = array(
 			'cb' => '<input type="checkbox" />',
-			'order' => 'Donation #',
-			'amount' => 'Amount',
-			'status' => 'Status / Email',
-			'date' => 'Date'
+			'order' => esc_html__('Donation #', 'easy-paypal-donation'),
+			'amount' => esc_html__('Amount', 'easy-paypal-donation'),
+			'status' => esc_html__('Status / Email', 'easy-paypal-donation'),
+			'date' => esc_html__('Date', 'easy-paypal-donation')
 		);
 		return $columns;
 	}
@@ -167,7 +229,7 @@ class OrderTable extends WP_List_Table
 	 */
 	function no_items()
 	{
-		_e('No donations found.');
+		esc_html_e('No donations found.', 'easy-paypal-donation');
 	}
 
 	/**
@@ -177,7 +239,7 @@ class OrderTable extends WP_List_Table
 	function get_bulk_actions()
 	{
 		$actions = array(
-			'delete' => 'Delete'
+			'delete' => esc_html__('Delete', 'easy-paypal-donation')
 		);
 		return $actions;
 	}
@@ -192,7 +254,7 @@ class OrderTable extends WP_List_Table
 			$action = 'bulk-' . $this->_args['plural'];
 
 			if (!wp_verify_nonce($nonce, $action)) {
-				wp_die('Security check fail');
+				wp_die(esc_html__('Security check fail', 'easy-paypal-donation'));
 			}
 		}
 	}

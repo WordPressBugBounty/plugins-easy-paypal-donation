@@ -28,7 +28,9 @@ function wpedon_shortcode($atts) {
 	
 	
 
-	if (empty($paypal_connection_data) && empty($stripe_account_data)) return __('(Please enter your Payment methods data on the settings pages.)');
+	if (empty($paypal_connection_data) && empty($stripe_account_data)) {
+		return '(' . esc_html__('Please enter your Payment methods data on the settings pages.', 'easy-paypal-donation') . ')';
+	}
 
 	// get settings page values
 	$options = \WPEasyDonation\Helpers\Option::get();
@@ -218,7 +220,7 @@ function wpedon_shortcode($atts) {
 		$imagee = "https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_92x26.png";
 		$imagef = "https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_cc_147x47.png";
 		$imageg = "https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_pp_142x27.png";
-	} //Norwgian
+	} //Norwegian
 
 	if ($value['language'] == "10") {
 		$language = "pl_PL";
@@ -430,7 +432,7 @@ function wpedon_shortcode($atts) {
 		// price input
 		$output .= '<div><br/>';
 		//$output .= '<label id="wpedon-'.$post_id.'-amount-label">' . __( 'Donation amount' ) . (($wpedon_button_enable_currency == "1") ? " ({$currency})" : '') . '</label>';
-		$output .= '<label id="wpedon-'.$post_id.'-amount-label">' . (isset($wpedon_button_donation_text) && !empty($wpedon_button_donation_text) ? $wpedon_button_donation_text : __( 'Donation Amount' )) . (($wpedon_button_enable_currency == "1") ? " ({$currency})" : '') . '</label>';
+		$output .= '<label id="wpedon-'.$post_id.'-amount-label">' . (isset($wpedon_button_donation_text) && !empty($wpedon_button_donation_text) ? $wpedon_button_donation_text : __( 'Donation Amount', 'easy-paypal-donation' )) . (($wpedon_button_enable_currency == "1") ? " ({$currency})" : '') . '</label>';
 
 		$output .= '<br />';
 		$output .= "<input type='number' min='1' step='any' name='ddm_{$rand_string}' class='wpedon-input' value='{$amount}' />";
@@ -490,7 +492,7 @@ function wpedon_shortcode($atts) {
         $output .= "<input type='hidden' name='bn' value='WPPlugin_SP'>";
         $output .= "<input type='hidden' name='return' value='" . esc_attr($return) . "' />";
         $output .= "<input type='hidden' name='cancel_return' value='" . esc_attr($value['cancel']) . "' />";
-        $output .= "<input class='wpedon_paypalbuttonimage' type='image' src='" . esc_attr($img) . "' border='0' name='submit' alt='Make your payments with PayPal. It is free, secure, effective.' style='border: none;'>";
+        $output .= "<input class='wpedon_paypalbuttonimage' type='image' src='" . esc_attr($img) . "' border='0' name='submit' alt='" . esc_attr__('Make your payments with PayPal. It is free, secure, effective.', 'easy-paypal-donation') . "' style='border: none;'>";
         $output .= "<img alt='' border='0' style='border:none;display:none;' src='https://www.paypal.com/$language/i/scr/pixel.gif' width='1' height='1'>";
     } else {
         $form_classes = ['wpedon-form'];
@@ -508,12 +510,12 @@ function wpedon_shortcode($atts) {
             $message = '';
             if ( isset( $_GET['wpedon_stripe_success'] ) ) {
                 if ( $_GET['wpedon_stripe_success'] == 1 ) {
-                    $message = '<span class="payment-success">' . __( 'The payment was successful' ) . '</span>';
+                    $message = '<span class="payment-success">' . esc_html__('The payment was successful', 'easy-paypal-donation') . '</span>';
                 } elseif ( $_GET['wpedon_stripe_success'] == 0 ) {
                     if ( isset($_GET['payment_cancelled']) && $_GET['payment_cancelled'] == 1 ) {
-                        $message = '<span class="payment-error">' . __( 'The payment was cancelled' ) . '</span>';
+                        $message = '<span class="payment-error">' . esc_html__('The payment was cancelled.', 'easy-paypal-donation') . '</span>';
                     } else {
-                        $message = '<span class="payment-error">' . __( 'An unknown payment error has occurred. Please try again' ) . '</span>';
+                        $message = '<span class="payment-error">' . esc_html__('An unknown payment error has occurred. Please try again', 'easy-paypal-donation') . '</span>';
                     }
                 }
             }
@@ -521,7 +523,7 @@ function wpedon_shortcode($atts) {
                 $output .= "<style>.wpedon-stripe-button-container >* {max-width: {$stripe_account_data['width']}px !important;}</style>";
             }
             $output .= "<div class='wpedon-stripe-button-container'>";
-            $output .= "<a href='#' class='wpedon-stripe-button'><span>" . __( 'Donate with Stripe' ) . "</span></a>";
+            $output .= "<a href='#' class='wpedon-stripe-button'><span>" . esc_html__('Donate with Stripe', 'easy-paypal-donation') . "</span></a>";
             $output .= "</div>";
             $output .= "<div class='wpedon-payment-message'>{$message}</div>";
         }
@@ -602,7 +604,7 @@ function wpedon_ppcp_html( $connection_data, $rand_string ) {
 
 	<?php if ( !empty( $connection_data['advanced_cards'] ) ) { ?>
 		<!-- Advanced credit and debit card payments form -->
-		<div class="wpedon-or"><span>or</span></div>
+		<div class="wpedon-or"><span><?php esc_html_e('or', 'easy-paypal-donation'); ?></span></div>
 		<div id='wpedon-paypal-hosted-fields-container-<?php echo $rand_string; ?>' class='wpedon-paypal-button-container wpedon-paypal-hosted-fields-container wpedon-<?php echo $connection_data['layout']; ?>'>
 			<div id="wpedon-card-form-<?php echo $rand_string; ?>" class="wpedon-card-form">
 				<div class="card-field-wrapper">
@@ -615,10 +617,10 @@ function wpedon_ppcp_html( $connection_data, $rand_string ) {
 					<div id="cvv-<?php echo $rand_string; ?>" class="card_field"></div>
 				</div>
 				<div class="card-field-wrapper">
-					<input type="text" id="card-holder-first-name-<?php echo $rand_string; ?>" name="card-holder-first-name-<?php echo $rand_string; ?>" autocomplete="off" placeholder="First name" class="card_field" />
+					<input type="text" id="card-holder-first-name-<?php echo $rand_string; ?>" name="card-holder-first-name-<?php echo $rand_string; ?>" autocomplete="off" placeholder="<?php echo esc_js(__('First name', 'easy-paypal-donation')); ?>" class="card_field" />
 				</div>
 				<div class="card-field-wrapper">
-					<input type="text" id="card-holder-last-name-<?php echo $rand_string; ?>" name="card-holder-last-name-<?php echo $rand_string; ?>" autocomplete="off" placeholder="Last name" class="card_field" />
+					<input type="text" id="card-holder-last-name-<?php echo $rand_string; ?>" name="card-holder-last-name-<?php echo $rand_string; ?>" autocomplete="off" placeholder="<?php echo esc_js(__('Last name', 'easy-paypal-donation')); ?>" class="card_field" />
 				</div>
 				<div class="card-field-wrapper">
 					<div id="postalCode-<?php echo $rand_string; ?>" class="card_field"></div>
@@ -637,8 +639,9 @@ function wpedon_ppcp_html( $connection_data, $rand_string ) {
 	<script>
     const message_<?php echo $rand_string; ?> = document.getElementById('wpedon-paypal-message-<?php echo $rand_string; ?>');
     if ( typeof paypal === 'undefined' ) {
-      message_<?php echo $rand_string; ?>.innerHTML = '<span class="payment-error">An error occurred while connecting PayPal SDK. Check the plugin settings.</span>';
-      throw 'An error occurred while connecting PayPal SDK. Check the plugin settings.';
+      message_<?php echo $rand_string; ?>.innerHTML = '<span class="payment-error">' + 
+          '<?php echo esc_js(__('An error occurred while connecting PayPal SDK. Check the plugin settings.', 'easy-paypal-donation')); ?>' + '</span>';
+      throw '<?php echo esc_js(__('An error occurred while connecting PayPal SDK. Check the plugin settings.', 'easy-paypal-donation')); ?>';
     }
 
     paypal.getFundingSources().forEach(function (fundingSource) {
@@ -682,7 +685,7 @@ function wpedon_ppcp_html( $connection_data, $rand_string ) {
               if (data.success && data.data.order_id) {
                 orderID = data.data.order_id;
               } else {
-                throw data.data && data.data.message ? data.data.message : 'An unknown error occurred while creating the order. Please reload the page and try again.';
+                throw data.data && data.data.message ? data.data.message : '<?php echo esc_js(__('An unknown error occurred while creating the order. Please reload the page and try again.', 'easy-paypal-donation')); ?>';
               }
               return orderID;
             });
@@ -705,7 +708,8 @@ function wpedon_ppcp_html( $connection_data, $rand_string ) {
                 if (return_url.length && fundingSource !== 'card') {
                   window.location.href = return_url;
                 } else {
-                  message_<?php echo $rand_string; ?>.innerHTML = '<span class="payment-success">The payment was successful</span>';
+                  message_<?php echo $rand_string; ?>.innerHTML = '<span class="payment-success">' + 
+                    '<?php echo esc_js(__('The payment was successful', 'easy-paypal-donation')); ?>' + '</span>';
                 }
               } else {
                 throw data.data.message;
@@ -716,7 +720,8 @@ function wpedon_ppcp_html( $connection_data, $rand_string ) {
             if (wpedon.cancel.length && fundingSource !== 'card') {
               window.location.href = wpedon.cancel;
             } else {
-              message_<?php echo $rand_string; ?>.innerHTML = '<span class="payment-error">Payment Cancelled.</span>';
+              message_<?php echo $rand_string; ?>.innerHTML = '<span class="payment-error">' + 
+                '<?php echo esc_js(__('The payment was cancelled.', 'easy-paypal-donation')); ?>' + '</span>';
             }
           },
           onError: function (error) {
@@ -762,19 +767,19 @@ function wpedon_ppcp_html( $connection_data, $rand_string ) {
         fields: {
           number: {
             selector: "#number-<?php echo $rand_string; ?>",
-            placeholder: "Card Number"
+            placeholder: "<?php echo esc_js(__('Card Number', 'easy-paypal-donation')); ?>"
           },
           expirationDate: {
             selector: "#expirationDate-<?php echo $rand_string; ?>",
-            placeholder: "Expiration"
+            placeholder: "<?php echo esc_js(__('Expiration', 'easy-paypal-donation')); ?>"
           },
           cvv: {
             selector: "#cvv-<?php echo $rand_string; ?>",
-            placeholder: "CVV"
+            placeholder: "<?php _e('CVV', 'easy-paypal-donation'); ?>"
           },
           postalCode: {
             selector: "#postalCode-<?php echo $rand_string; ?>",
-            placeholder: "Billing zip code / Postal code"
+            placeholder: "<?php _e('Billing zip code / Postal code', 'easy-paypal-donation'); ?>"
           }
         },
         createOrder: function() {
@@ -797,7 +802,7 @@ function wpedon_ppcp_html( $connection_data, $rand_string ) {
             if (data.success && data.data.order_id) {
               orderId_<?php echo $rand_string; ?> = data.data.order_id;
             } else {
-              throw data.data && data.data.message ? data.data.message : 'An unknown error occurred while creating the order. Please reload the page and try again.';
+              throw data.data && data.data.message ? data.data.message : "<?php _e('An unknown error occurred while creating the order. Please reload the page and try again.', 'easy-paypal-donation'); ?>";
             }
             return orderId_<?php echo $rand_string; ?>;
           });
@@ -846,7 +851,8 @@ function wpedon_ppcp_html( $connection_data, $rand_string ) {
           }
 
           if (!formValid) {
-            message_<?php echo $rand_string; ?>.innerHTML = '<span class="payment-error">Please correct the errors in the fields above.</span>';
+            message_<?php echo $rand_string; ?>.innerHTML = '<span class="payment-error">' + 
+              '<?php echo esc_js(__('Please correct the errors in the fields above.', 'easy-paypal-donation')); ?>' + '</span>';
             return false;
           }
 
@@ -871,7 +877,8 @@ function wpedon_ppcp_html( $connection_data, $rand_string ) {
                 if (return_url.length) {
                   window.location.href = return_url;
                 } else {
-                  message_<?php echo $rand_string; ?>.innerHTML = '<span class="payment-success">The payment was successful</span>';
+                  message_<?php echo $rand_string; ?>.innerHTML = '<span class="payment-success">' + 
+                    '<?php echo esc_js(__('The payment was successful', 'easy-paypal-donation')); ?>' + '</span>';
                 }
               } else {
                 throw {message: data.data.message};
@@ -936,5 +943,7 @@ function wpedon_ppcp_html( $connection_data, $rand_string ) {
 }
 
 function wpedon_free_ppcp_js_sdk_error_message() {
-	return '<strong>Site admin</strong>, an error was detected in the plugin settings.</br>Please check the PayPal connection and product settings (price, name, etc.)';
+	return '<strong>' . esc_html__('Site admin', 'easy-paypal-donation') . '</strong>, ' . 
+           esc_html__('an error was detected in the plugin settings.', 'easy-paypal-donation') . '</br>' . 
+           esc_html__('Please check the PayPal connection and product settings (price, name, etc.)', 'easy-paypal-donation');
 }

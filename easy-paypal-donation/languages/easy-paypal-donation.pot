@@ -1,0 +1,1923 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Accept Donations with PayPal & Stripe\n"
+"POT-Creation-Date: 2025-04-30 17:30-0700\n"
+"PO-Revision-Date: 2025-04-19 12:47-0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;_ex;_nx;_n_noop;_nx_noop;esc_attr__;esc_attr_e;esc_attr_x;esc_html__;esc_html_e;esc_html_x;translate_nooped_plural\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: core/Base/DashboardWidget.php:24
+msgid "Accept Donations with PayPal & Stripe - Donations"
+msgstr ""
+
+#: core/Base/DashboardWidget.php:44 core/Table/OrderTable.php:232
+msgid "No donations found."
+msgstr ""
+
+#: core/Base/DashboardWidget.php:51 core/Table/ButtonTable.php:141
+#: templates/admin_media_button/popup.php:52
+msgid "ID"
+msgstr ""
+
+#: core/Base/DashboardWidget.php:52 core/Table/OrderTable.php:210
+msgid "Date"
+msgstr ""
+
+#: core/Base/DashboardWidget.php:53 core/Table/ButtonTable.php:140
+#: core/Table/OrderTable.php:208 templates/admin_media_button/popup.php:50
+msgid "Amount"
+msgstr ""
+
+#: core/Base/DashboardWidget.php:54
+msgid "Status"
+msgstr ""
+
+#: core/Base/DashboardWidget.php:84 templates/page/admin_view_order.php:11
+msgid "View All Donations"
+msgstr ""
+
+#: core/Base/Filter.php:25
+msgid "Support"
+msgstr ""
+
+#: core/Base/Filter.php:26
+msgid "Pro Version"
+msgstr ""
+
+#: core/Base/Filter.php:27 core/Pages/Dashboard.php:25
+msgid "Settings"
+msgstr ""
+
+#: core/Base/Filter.php:43
+msgid "Use this image"
+msgstr ""
+
+#: core/Base/NoticeController.php:32
+msgid "Accept Donations with PayPal & Stripe is now active!"
+msgstr ""
+
+#: core/Base/NoticeController.php:33
+msgid "Click here to configure your payment settings."
+msgstr ""
+
+#: core/Base/NoticeController.php:93
+msgid "Your website appears to be a testing website / a localhost environment - Please note that \"payment status\" may not change to \"completed\" until your website is public on the internet."
+msgstr ""
+
+#: core/Base/PpcpController.php:234 core/Base/PpcpController.php:309
+#: core/Base/PpcpController.php:660 core/Base/PpcpController.php:734
+#: core/Base/PpcpController.php:856
+msgid "The request has not been authenticated. Please reload the page and try again."
+msgstr ""
+
+#: core/Base/PpcpController.php:257 core/Base/PpcpController.php:279
+msgid "An error occurred while processing your account disconnection request. Please contact our support service."
+msgstr ""
+
+#: core/Base/PpcpController.php:320 core/Base/PpcpController.php:676
+#: core/Base/PpcpController.php:744
+msgid "An error occurred."
+msgstr ""
+
+#: core/Base/PpcpController.php:669
+msgid "The value cannot be zero."
+msgstr ""
+
+#: core/Base/PpcpController.php:707
+msgid "Can't create an order."
+msgstr ""
+
+#: core/Base/PpcpController.php:863
+msgid "Donation error."
+msgstr ""
+
+#: core/Base/PpcpController.php:886
+msgid "The donation was refunded."
+msgstr ""
+
+#: core/Base/PpcpController.php:893
+msgid "Can't refund the donation."
+msgstr ""
+
+#: core/Base/Stripe.php:184 templates/ppcp/ppcp_status_table.php:16
+msgid "Administrator (Owner)"
+msgstr ""
+
+#: core/Base/Stripe.php:185
+msgid "Your Stripe account is connected in"
+msgstr ""
+
+#: core/Base/Stripe.php:187 core/Base/Stripe.php:191
+#: templates/ppcp/ppcp_status_table.php:23
+msgid "mode"
+msgstr ""
+
+#: core/Base/Stripe.php:189 templates/ppcp/ppcp_status_table.php:23
+msgid "Connect in"
+msgstr ""
+
+#: core/Base/Stripe.php:192 includes/public_shortcode.php:607
+#: templates/ppcp/ppcp_status_table.php:24
+msgid "or"
+msgstr ""
+
+#: core/Base/Stripe.php:194 templates/ppcp/ppcp_status_table.php:24
+msgid "disconnect this account"
+msgstr ""
+
+#: core/Base/Stripe.php:205 templates/notice/stripe_connect_notice.php:23
+msgid "Connect with Stripe"
+msgstr ""
+
+#: core/Base/Stripe.php:206
+msgid "Setup Stripe Connect. WPPlugin LLC is an official Stripe Partner. Pay as you go pricing: 1% per-transaction fee + Stripe fees."
+msgstr ""
+
+#: core/Base/Stripe.php:262 core/Base/Stripe.php:314
+msgid "Security check failed"
+msgstr ""
+
+#: core/Base/Stripe.php:426
+msgid "Security error. The payment has not been made. Please reload the page and try again."
+msgstr ""
+
+#: core/Base/Stripe.php:437
+msgid "Stripe connection error. Please contact the site administrator."
+msgstr ""
+
+#: core/Base/Stripe.php:479
+msgid "Fixed amount"
+msgstr ""
+
+#: core/Base/Stripe.php:535
+msgid "An unexpected error occurred. Please try again."
+msgstr ""
+
+#: core/Base/Stripe.php:595
+msgid "One or more required parameters are not set"
+msgstr ""
+
+#: core/Base/Stripe.php:614
+msgid "The token is invalid"
+msgstr ""
+
+#: core/Pages/ButtonPage.php:59 core/Pages/ButtonPage.php:175
+#: core/Pages/ButtonPage.php:185
+msgid "Nonce verification failed."
+msgstr ""
+
+#: core/Pages/ButtonPage.php:64 core/Pages/ButtonPage.php:196
+msgid "Price Required."
+msgstr ""
+
+#: core/Pages/ButtonPage.php:304
+msgid "Saved"
+msgstr ""
+
+#: core/Pages/ButtonPage.php:329 core/Pages/OrderPage.php:52
+#: core/Table/ButtonTable.php:176 core/Table/OrderTable.php:257
+msgid "Security check fail"
+msgstr ""
+
+#: core/Pages/Dashboard.php:19
+msgid "Easy Donations"
+msgstr ""
+
+#: core/Pages/Dashboard.php:19
+msgid "Donations with PayPal & Stripe"
+msgstr ""
+
+#: core/Pages/Dashboard.php:21 templates/page/admin_orders.php:25
+msgid "Donations"
+msgstr ""
+
+#: core/Pages/Dashboard.php:23
+msgid "Buttons"
+msgstr ""
+
+#: core/Pages/SettingPage.php:14
+msgid "You do not have sufficient permissions to access this page. Please sign in as an administrator."
+msgstr ""
+
+#: core/Pages/SettingPage.php:20
+msgid "Nonce verification failed"
+msgstr ""
+
+#: core/Table/ButtonTable.php:39
+msgid "(No Item Name)"
+msgstr ""
+
+#: core/Table/ButtonTable.php:47
+msgid "Customer enters amount"
+msgstr ""
+
+#: core/Table/ButtonTable.php:106
+msgid "Edit"
+msgstr ""
+
+#: core/Table/ButtonTable.php:107 core/Table/ButtonTable.php:161
+#: core/Table/OrderTable.php:176 core/Table/OrderTable.php:242
+msgid "Delete"
+msgstr ""
+
+#: core/Table/ButtonTable.php:138 templates/admin_media_button/popup.php:48
+msgid "Name"
+msgstr ""
+
+#: core/Table/ButtonTable.php:139 templates/page/admin_button_edit.php:37
+msgid "Shortcode"
+msgstr ""
+
+#: core/Table/ButtonTable.php:151 templates/admin_media_button/popup.php:58
+#: templates/widgets/button_widget.php:27
+msgid "No buttons found."
+msgstr ""
+
+#: core/Table/OrderTable.php:34
+msgid "All"
+msgstr ""
+
+#: core/Table/OrderTable.php:35
+msgid "Completed"
+msgstr ""
+
+#: core/Table/OrderTable.php:36
+msgid "Pending"
+msgstr ""
+
+#: core/Table/OrderTable.php:37
+msgid "Refunded"
+msgstr ""
+
+#: core/Table/OrderTable.php:38
+msgid "Failed"
+msgstr ""
+
+#: core/Table/OrderTable.php:175
+msgid "View"
+msgstr ""
+
+#: core/Table/OrderTable.php:207
+msgid "Donation #"
+msgstr ""
+
+#: core/Table/OrderTable.php:209
+msgid "Status / Email"
+msgstr ""
+
+#: core/Widget/ButtonWidget.php:17 core/Widget/ButtonWidget.php:19
+msgid "Easy Donation Button"
+msgstr ""
+
+#: easy-paypal-donation.php:71
+msgid "I upgraded to the Pro version"
+msgstr ""
+
+#: easy-paypal-donation.php:72
+msgid "I no longer need the plugin"
+msgstr ""
+
+#: easy-paypal-donation.php:73
+msgid "I found a better plugin"
+msgstr ""
+
+#: easy-paypal-donation.php:74
+msgid "The plugin is not working"
+msgstr ""
+
+#: easy-paypal-donation.php:75
+msgid "The fees are too high"
+msgstr ""
+
+#: easy-paypal-donation.php:76
+msgid "It's a temporary deactivation"
+msgstr ""
+
+#: easy-paypal-donation.php:77 templates/page/admin_button_edit.php:661
+#: templates/page/admin_button_new.php:188
+#: templates/ppcp/setup-account-modal.php:18
+msgid "Other"
+msgstr ""
+
+#: easy-paypal-donation.php:80
+msgid "Accept Donations with PayPal & Stripe Deactivation"
+msgstr ""
+
+#: easy-paypal-donation.php:81
+msgid "If you have a moment, please let us know why you are deactivating. All submissions are anonymous and we only use this feedback to improve this plugin."
+msgstr ""
+
+#: easy-paypal-donation.php:82
+msgid "Please tell us more..."
+msgstr ""
+
+#: easy-paypal-donation.php:83
+msgid "Skip & Deactivate"
+msgstr ""
+
+#: easy-paypal-donation.php:84
+msgid "Submit & Deactivate"
+msgstr ""
+
+#: easy-paypal-donation.php:85 templates/page/admin_button_new.php:15
+#: templates/ppcp/setup-account-modal.php:74
+msgid "Cancel"
+msgstr ""
+
+#: easy-paypal-donation.php:86
+msgid "What is the name of the plugin?"
+msgstr ""
+
+#: easy-paypal-donation.php:87
+msgid "We're sorry to hear that. Can you describe the issue?"
+msgstr ""
+
+#: easy-paypal-donation.php:88
+msgid "Error: Please complete the required field."
+msgstr ""
+
+#: helpers/Option.php:58
+msgid "PLACE ORDER"
+msgstr ""
+
+#: includes/public_shortcode.php:32
+msgid "Please enter your Payment methods data on the settings pages."
+msgstr ""
+
+#: includes/public_shortcode.php:435 templates/page/admin_button_edit.php:90
+#: templates/page/admin_button_new.php:57
+msgid "Donation Amount"
+msgstr ""
+
+#: includes/public_shortcode.php:495
+msgid "Make your payments with PayPal. It is free, secure, effective."
+msgstr ""
+
+#: includes/public_shortcode.php:513 includes/public_shortcode.php:712
+#: includes/public_shortcode.php:881
+msgid "The payment was successful"
+msgstr ""
+
+#: includes/public_shortcode.php:516 includes/public_shortcode.php:724
+msgid "The payment was cancelled."
+msgstr ""
+
+#: includes/public_shortcode.php:518
+msgid "An unknown payment error has occurred. Please try again"
+msgstr ""
+
+#: includes/public_shortcode.php:526
+msgid "Donate with Stripe"
+msgstr ""
+
+#: includes/public_shortcode.php:620
+msgid "First name"
+msgstr ""
+
+#: includes/public_shortcode.php:623
+msgid "Last name"
+msgstr ""
+
+#: includes/public_shortcode.php:643 includes/public_shortcode.php:644
+msgid "An error occurred while connecting PayPal SDK. Check the plugin settings."
+msgstr ""
+
+#: includes/public_shortcode.php:688 includes/public_shortcode.php:805
+msgid "An unknown error occurred while creating the order. Please reload the page and try again."
+msgstr ""
+
+#: includes/public_shortcode.php:770
+msgid "Card Number"
+msgstr ""
+
+#: includes/public_shortcode.php:774
+msgid "Expiration"
+msgstr ""
+
+#: includes/public_shortcode.php:778
+msgid "CVV"
+msgstr ""
+
+#: includes/public_shortcode.php:782
+msgid "Billing zip code / Postal code"
+msgstr ""
+
+#: includes/public_shortcode.php:855
+msgid "Please correct the errors in the fields above."
+msgstr ""
+
+#: includes/public_shortcode.php:946
+msgid "Site admin"
+msgstr ""
+
+#: includes/public_shortcode.php:947
+msgid "an error was detected in the plugin settings."
+msgstr ""
+
+#: includes/public_shortcode.php:948
+msgid "Please check the PayPal connection and product settings (price, name, etc.)"
+msgstr ""
+
+#: templates/admin_media_button/popup.php:12
+msgid "Error: Please select an existing button from the dropdown or make a new one."
+msgstr ""
+
+#: templates/admin_media_button/popup.php:23
+msgid "PayPal & Stripe Donation Button"
+msgstr ""
+
+#: templates/admin_media_button/popup.php:27
+#: templates/widgets/button_widget.php:11
+msgid "Choose an existing button:"
+msgstr ""
+
+#: templates/admin_media_button/popup.php:66
+#: templates/widgets/button_widget.php:31
+msgid "Make a new button:"
+msgstr ""
+
+#: templates/admin_media_button/popup.php:66
+#: templates/admin_media_button/popup.php:67
+#: templates/widgets/button_widget.php:31
+#: templates/widgets/button_widget.php:32
+msgid "here"
+msgstr ""
+
+#: templates/admin_media_button/popup.php:67
+#: templates/widgets/button_widget.php:32
+msgid "Manage existing buttons:"
+msgstr ""
+
+#: templates/admin_media_button/popup.php:77
+msgid "Alignment:"
+msgstr ""
+
+#: templates/admin_media_button/popup.php:84
+msgid "Left"
+msgstr ""
+
+#: templates/admin_media_button/popup.php:85
+msgid "Center"
+msgstr ""
+
+#: templates/admin_media_button/popup.php:86
+msgid "Right"
+msgstr ""
+
+#: templates/admin_media_button/popup.php:91
+#: templates/page/admin_button_edit.php:829
+#: templates/page/admin_button_edit.php:841
+#: templates/page/admin_button_edit.php:853
+#: templates/page/admin_button_edit.php:865
+#: templates/page/admin_button_edit.php:877
+#: templates/page/admin_button_edit.php:889
+#: templates/page/admin_button_edit.php:901
+#: templates/page/admin_button_edit.php:913
+#: templates/page/admin_button_edit.php:925
+#: templates/page/admin_button_new.php:272
+#: templates/page/admin_button_new.php:290
+#: templates/page/admin_button_new.php:309
+#: templates/page/admin_button_new.php:325
+#: templates/page/admin_button_new.php:340
+#: templates/page/admin_button_new.php:356
+#: templates/page/admin_button_new.php:373
+#: templates/page/admin_button_new.php:391
+#: templates/page/admin_button_new.php:408
+#: templates/page/admin_button_new.php:425
+#: templates/page/admin_settings.php:647 templates/page/admin_settings.php:662
+msgid "Optional"
+msgstr ""
+
+#: templates/admin_media_button/popup.php:101
+msgid "Insert Button"
+msgstr ""
+
+#: templates/notice/activation_notice.php:3
+msgid "Click here to view the plugin settings"
+msgstr ""
+
+#: templates/notice/ppcp_notice.php:10
+#: templates/notice/stripe_connect_notice.php:10
+msgid "Important"
+msgstr ""
+
+#: templates/notice/ppcp_notice.php:11
+msgid "'Accept Donations with PayPal & Stripe' now uses PayPal Commerce Platform."
+msgstr ""
+
+#: templates/notice/ppcp_notice.php:13
+msgid "PayPal Standard is now a Legacy product."
+msgstr ""
+
+#: templates/notice/ppcp_notice.php:15
+msgid "If you use PayPal, please update to PayPal Commerce Platform."
+msgstr ""
+
+#: templates/notice/ppcp_notice.php:25
+msgid "Get Started"
+msgstr ""
+
+#: templates/notice/ppcp_notice.php:29
+#: templates/ppcp/ppcp_false_status_table.php:18
+msgid "WPPlugin LLC is an official PayPal Partner. Pay as you go pricing: 1% per-transaction fee + PayPal fees."
+msgstr ""
+
+#: templates/notice/stripe_connect_error.php:2
+msgid "An error occurred while interacting with our Stripe Connect interface. Please try again."
+msgstr ""
+
+#: templates/notice/stripe_connect_notice.php:11
+msgid "'Accept Donations with PayPal & Stripe' now uses Stripe Connect. Stripe Connect improves security and allows for easier setup."
+msgstr ""
+
+#: templates/notice/stripe_connect_notice.php:13
+msgid "If you use Stripe, please use Stripe Connect."
+msgstr ""
+
+#: templates/notice/stripe_connect_notice.php:14
+msgid "Have questions: see the"
+msgstr ""
+
+#: templates/notice/stripe_connect_notice.php:16
+msgid "documentation"
+msgstr ""
+
+#: templates/notice/stripe_connect_notice.php:27
+msgid "WPPlugin LLC is an official Stripe Partner. Pay as you go pricing: 1% per-transaction fee + Stripe fees."
+msgstr ""
+
+#: templates/page/admin_button_edit.php:13
+msgid "Edit PayPal & Stripe Donation Button"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:17
+#: templates/page/admin_button_new.php:11
+msgid "Save PayPal & Stripe Donation Button"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:21
+msgid "View All Donation Buttons"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:44
+msgid "Shortcode:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:50
+msgid "Put this in a page, post, PayPal widget, or"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:51
+msgid ""
+"in\n"
+"                            your theme"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:53
+msgid "to show the PayPal button on your site. You can also use the button inserter found above the page or post editor."
+msgstr ""
+
+#: templates/page/admin_button_edit.php:62
+#: templates/page/admin_button_new.php:27
+msgid "Main"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:67
+#: templates/page/admin_button_new.php:33
+#: templates/page/admin_view_order.php:73
+msgid "Purpose / Name:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:71
+#: templates/page/admin_button_new.php:38
+msgid "The purpose of the donation. If blank, customer enters purpose."
+msgstr ""
+
+#: templates/page/admin_button_edit.php:76
+#: templates/page/admin_button_new.php:42
+msgid "Donation Amount Type:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:80
+#: templates/page/admin_button_new.php:46
+msgid "Fixed value"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:84
+#: templates/page/admin_button_new.php:50
+msgid "Manual entry"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:90
+#: templates/page/admin_button_new.php:57
+msgid " (default)"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:95
+#: templates/page/admin_button_new.php:63
+msgid "Required - Example format: 6.99"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:95
+#: templates/page/admin_button_new.php:63
+msgid "Minimum amount for PayPal & Stripe is $1.00"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:95
+#: templates/page/admin_button_new.php:63
+msgid "If using dropdown fields, enter 1.00"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:99
+#: templates/page/admin_button_new.php:68
+#: templates/page/admin_view_order.php:85
+msgid "Donation ID:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:104
+#: templates/page/admin_button_new.php:74
+msgid "Optional - Example: S12T-Gec-RS."
+msgstr ""
+
+#: templates/page/admin_button_edit.php:112
+#: templates/page/admin_button_new.php:83 templates/page/admin_settings.php:48
+msgid "Language & Currency"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:122
+#: templates/page/admin_button_new.php:94 templates/page/admin_settings.php:95
+msgid "Language:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:128
+#: templates/page/admin_button_new.php:99
+msgid "Default Language"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:132
+#: templates/page/admin_button_new.php:100
+#: templates/page/admin_settings.php:104
+msgid "Danish"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:136
+#: templates/page/admin_button_new.php:101
+#: templates/page/admin_settings.php:107
+msgid "Dutch"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:140
+#: templates/page/admin_button_new.php:102
+#: templates/page/admin_settings.php:110
+msgid "English"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:144
+#: templates/page/admin_button_new.php:103
+#: templates/page/admin_settings.php:113
+msgid "English - UK"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:148
+#: templates/page/admin_button_new.php:104
+#: templates/page/admin_settings.php:116
+msgid "French"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:152
+#: templates/page/admin_button_new.php:105
+#: templates/page/admin_settings.php:119
+msgid "German"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:156
+#: templates/page/admin_button_new.php:106
+#: templates/page/admin_settings.php:122
+msgid "Hebrew"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:160
+#: templates/page/admin_button_new.php:107
+#: templates/page/admin_settings.php:125
+msgid "Italian"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:164
+#: templates/page/admin_button_new.php:108
+#: templates/page/admin_settings.php:128
+msgid "Japanese"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:168
+#: templates/page/admin_button_new.php:109
+#: templates/page/admin_settings.php:131
+msgid "Norwegian"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:172
+#: templates/page/admin_button_new.php:110
+#: templates/page/admin_settings.php:134
+msgid "Polish"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:176
+#: templates/page/admin_button_new.php:111
+#: templates/page/admin_settings.php:137
+msgid "Portuguese"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:180
+#: templates/page/admin_button_new.php:112
+#: templates/page/admin_settings.php:140
+msgid "Russian"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:184
+#: templates/page/admin_button_new.php:113
+#: templates/page/admin_settings.php:143
+msgid "Spanish"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:188
+#: templates/page/admin_button_new.php:114
+#: templates/page/admin_settings.php:146
+msgid "Swedish"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:192
+#: templates/page/admin_button_new.php:115
+#: templates/page/admin_settings.php:149
+msgid "Simplified Chinese -China only"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:196
+#: templates/page/admin_button_new.php:116
+#: templates/page/admin_settings.php:152
+msgid "Traditional Chinese - Hong Kong only"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:200
+#: templates/page/admin_button_new.php:117
+#: templates/page/admin_settings.php:155
+msgid "Traditional Chinese - Taiwan only"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:204
+#: templates/page/admin_button_new.php:118
+#: templates/page/admin_settings.php:158
+msgid "Turkish"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:208
+#: templates/page/admin_button_new.php:119
+#: templates/page/admin_settings.php:161
+msgid "Thai"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:212
+#: templates/page/admin_button_edit.php:331
+#: templates/page/admin_button_edit.php:352
+#: templates/page/admin_button_edit.php:378
+#: templates/page/admin_button_edit.php:395
+#: templates/page/admin_button_edit.php:411
+#: templates/page/admin_button_edit.php:429
+#: templates/page/admin_button_edit.php:446
+#: templates/page/admin_button_edit.php:464
+#: templates/page/admin_button_edit.php:474
+#: templates/page/admin_button_edit.php:505
+#: templates/page/admin_button_edit.php:525
+#: templates/page/admin_button_edit.php:542
+#: templates/page/admin_button_edit.php:556
+#: templates/page/admin_button_edit.php:570
+#: templates/page/admin_button_edit.php:586
+#: templates/page/admin_button_edit.php:619
+#: templates/page/admin_button_edit.php:628
+#: templates/page/admin_button_edit.php:642
+#: templates/page/admin_button_edit.php:658
+#: templates/page/admin_button_edit.php:776
+#: templates/page/admin_button_new.php:122
+#: templates/page/admin_button_new.php:164
+#: templates/page/admin_button_new.php:197
+msgid "Optional - Will override settings page value."
+msgstr ""
+
+#: templates/page/admin_button_edit.php:221
+#: templates/page/admin_button_new.php:132
+#: templates/page/admin_settings.php:176
+msgid "Currency:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:227
+#: templates/page/admin_button_new.php:136
+msgid "Default Currency"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:231
+#: templates/page/admin_button_new.php:137
+#: templates/page/admin_settings.php:182
+msgid "Australian Dollar - AUD"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:235
+#: templates/page/admin_button_new.php:138
+#: templates/page/admin_settings.php:185
+msgid "Brazilian Real - BRL"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:239
+#: templates/page/admin_button_new.php:139
+#: templates/page/admin_settings.php:188
+msgid "Canadian Dollar - CAD"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:243
+#: templates/page/admin_button_new.php:140
+#: templates/page/admin_settings.php:191
+msgid "Czech Koruna - CZK"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:247
+#: templates/page/admin_button_new.php:141
+#: templates/page/admin_settings.php:194
+msgid "Danish Krone - DKK"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:251
+#: templates/page/admin_button_new.php:142
+#: templates/page/admin_settings.php:197
+msgid "Euro - EUR"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:255
+#: templates/page/admin_button_new.php:143
+#: templates/page/admin_settings.php:200
+msgid "Hong Kong Dollar - HKD"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:259
+#: templates/page/admin_button_new.php:144
+#: templates/page/admin_settings.php:203
+msgid "Hungarian Forint - HUF"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:263
+#: templates/page/admin_button_new.php:145
+#: templates/page/admin_settings.php:206
+msgid "Israeli New Sheqel - ILS"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:267
+#: templates/page/admin_button_new.php:146
+#: templates/page/admin_settings.php:209
+msgid "Japanese Yen - JPY"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:271
+#: templates/page/admin_button_new.php:147
+#: templates/page/admin_settings.php:212
+msgid "Malaysian Ringgit - MYR"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:275
+#: templates/page/admin_button_new.php:148
+#: templates/page/admin_settings.php:215
+msgid "Mexican Peso - MXN"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:279
+#: templates/page/admin_button_new.php:149
+#: templates/page/admin_settings.php:218
+msgid "Norwegian Krone - NOK"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:283
+#: templates/page/admin_button_new.php:150
+#: templates/page/admin_settings.php:221
+msgid "New Zealand Dollar - NZD"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:287
+#: templates/page/admin_button_new.php:151
+#: templates/page/admin_settings.php:224
+msgid "Philippine Peso - PHP"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:291
+#: templates/page/admin_button_new.php:152
+#: templates/page/admin_settings.php:227
+msgid "Polish Zloty - PLN"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:295
+#: templates/page/admin_button_new.php:153
+#: templates/page/admin_settings.php:230
+msgid "Pound Sterling - GBP"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:299
+#: templates/page/admin_button_new.php:154
+#: templates/page/admin_settings.php:233
+msgid "Russian Ruble - RUB"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:303
+#: templates/page/admin_button_new.php:155
+#: templates/page/admin_settings.php:236
+msgid "Singapore Dollar - SGD"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:307
+#: templates/page/admin_button_new.php:156
+#: templates/page/admin_settings.php:239
+msgid "Swedish Krona - SEK"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:311
+#: templates/page/admin_button_new.php:157
+#: templates/page/admin_settings.php:242
+msgid "Swiss Franc - CHF"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:315
+#: templates/page/admin_button_new.php:158
+#: templates/page/admin_settings.php:245
+msgid "Taiwan New Dollar - TWD"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:319
+#: templates/page/admin_button_new.php:159
+#: templates/page/admin_settings.php:248
+msgid "Thai Baht - THB"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:323
+#: templates/page/admin_button_new.php:160
+#: templates/page/admin_settings.php:251
+msgid "Turkish Lira - TRY"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:327
+#: templates/page/admin_button_new.php:161
+#: templates/page/admin_settings.php:254
+msgid "U.S. Dollar - USD"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:340
+#: templates/page/admin_settings.php:50
+msgid "PayPal"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:346
+#: templates/page/admin_button_new.php:178
+msgid "PayPal Account:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:361
+msgid "PayPal Payments Methods Accepted"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:366
+#: templates/ppcp/ppcp_status_table.php:72
+msgid "PayPal:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:372
+#: templates/page/admin_button_edit.php:388
+#: templates/page/admin_button_edit.php:405
+#: templates/page/admin_button_edit.php:421
+#: templates/page/admin_button_edit.php:439
+#: templates/page/admin_button_edit.php:456
+#: templates/page/admin_button_edit.php:495
+#: templates/page/admin_button_edit.php:515
+#: templates/page/admin_button_edit.php:535
+#: templates/page/admin_button_edit.php:578
+#: templates/page/admin_button_edit.php:607
+#: templates/page/admin_button_edit.php:650
+msgid "Default Value"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:374
+#: templates/page/admin_button_edit.php:390
+#: templates/page/admin_button_edit.php:407
+#: templates/page/admin_button_edit.php:423
+#: templates/page/admin_button_edit.php:441
+#: templates/page/admin_button_edit.php:458
+#: templates/ppcp/ppcp_status_table.php:77
+#: templates/ppcp/ppcp_status_table.php:94
+#: templates/ppcp/ppcp_status_table.php:111
+#: templates/ppcp/ppcp_status_table.php:128
+#: templates/ppcp/ppcp_status_table.php:145
+#: templates/ppcp/ppcp_status_table.php:164
+msgid "On"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:375
+#: templates/page/admin_button_edit.php:391
+#: templates/page/admin_button_edit.php:408
+#: templates/page/admin_button_edit.php:425
+#: templates/page/admin_button_edit.php:442
+#: templates/page/admin_button_edit.php:460
+#: templates/ppcp/ppcp_status_table.php:83
+#: templates/ppcp/ppcp_status_table.php:100
+#: templates/ppcp/ppcp_status_table.php:117
+#: templates/ppcp/ppcp_status_table.php:134
+#: templates/ppcp/ppcp_status_table.php:151
+#: templates/ppcp/ppcp_status_table.php:170
+msgid "Off"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:382
+#: templates/ppcp/ppcp_status_table.php:89
+msgid "PayPal PayLater:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:399
+#: templates/ppcp/ppcp_status_table.php:106
+msgid "Venmo:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:415
+#: templates/ppcp/ppcp_status_table.php:123
+msgid "Local Alternative Payment Methods:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:433
+#: templates/ppcp/ppcp_status_table.php:140
+msgid "Credit & Debit Cards:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:450
+#: templates/ppcp/ppcp_status_table.php:159
+msgid "Advanced Credit & Debit Cards (ACDC):"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:468
+#: templates/ppcp/ppcp_status_table.php:176
+msgid "ACDC Button text:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:483
+#: templates/ppcp/ppcp_status_table.php:189
+msgid "PayPal Checkout Buttons"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:489
+#: templates/ppcp/ppcp_status_table.php:194
+msgid "Layout:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:498
+#: templates/ppcp/ppcp_status_table.php:199
+msgid "Horizontal"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:501
+#: templates/ppcp/ppcp_status_table.php:205
+msgid "Vertical"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:509
+#: templates/ppcp/ppcp_status_table.php:211
+msgid "Color:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:517
+#: templates/ppcp/ppcp_status_table.php:216
+msgid "Gold"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:518
+#: templates/ppcp/ppcp_status_table.php:222
+msgid "Blue"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:519
+#: templates/ppcp/ppcp_status_table.php:228
+msgid "Black"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:520
+#: templates/ppcp/ppcp_status_table.php:234
+msgid "Silver"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:522
+#: templates/ppcp/ppcp_status_table.php:240
+msgid "White"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:529
+#: templates/ppcp/ppcp_status_table.php:246
+msgid "Shape:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:537
+#: templates/ppcp/ppcp_status_table.php:251
+msgid "Rectangle"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:539
+#: templates/ppcp/ppcp_status_table.php:257
+msgid "Pill"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:546
+#: templates/ppcp/ppcp_status_table.php:268
+msgid "Height:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:552
+#: templates/ppcp/ppcp_status_table.php:273
+msgid "25 - 55, a value around 40 is recommended"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:560
+msgid "PayPal buttons width:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:566
+#: templates/page/admin_button_edit.php:638
+#: templates/ppcp/ppcp_status_table.php:288
+msgid "Max buttons width in pixels"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:573
+msgid "PayPal Sandbox Mode:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:580
+#: templates/page/admin_button_edit.php:652
+#: templates/page/admin_settings.php:302 templates/page/admin_settings.php:516
+msgid "On (Sandbox mode)"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:582
+#: templates/page/admin_button_edit.php:654
+#: templates/page/admin_settings.php:310 templates/page/admin_settings.php:522
+msgid "Off (Live mode)"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:595
+#: templates/page/admin_settings.php:52
+msgid "Stripe"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:600
+#: templates/page/admin_settings.php:528
+msgid "Disable Stripe:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:611
+#: templates/page/admin_settings.php:323 templates/page/admin_settings.php:535
+#: templates/page/admin_settings.php:605 templates/page/admin_settings.php:632
+msgid "No"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:615
+#: templates/page/admin_settings.php:331 templates/page/admin_settings.php:542
+#: templates/page/admin_settings.php:598 templates/page/admin_settings.php:625
+msgid "Yes"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:622
+#: templates/page/admin_button_new.php:183
+msgid "Stripe Account:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:632
+msgid "Stripe button width:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:645
+msgid "Stripe Sandbox Mode:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:666
+#: templates/page/admin_button_new.php:193
+msgid "Return URL:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:671
+msgid "Optional - Will override settings page value. "
+msgstr ""
+
+#: templates/page/admin_button_edit.php:672
+msgid "Example: "
+msgstr ""
+
+#: templates/page/admin_button_edit.php:672
+#: templates/page/admin_settings.php:668
+msgid "thankyou"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:675
+#: templates/page/admin_button_new.php:201
+msgid "Show Purpose / Name:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:682
+#: templates/page/admin_button_new.php:204
+msgid "Optional - Show the purpose / name above the button."
+msgstr ""
+
+#: templates/page/admin_button_edit.php:685
+#: templates/page/admin_button_new.php:208
+msgid "Show Donation Amount:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:692
+#: templates/page/admin_button_new.php:211
+msgid "Optional - Show the donation amount above the button."
+msgstr ""
+
+#: templates/page/admin_button_edit.php:695
+#: templates/page/admin_button_new.php:214
+msgid "Show Currency:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:702
+#: templates/page/admin_button_new.php:216
+msgid "Optional - Show the currency (example: USD) after the amount."
+msgstr ""
+
+#: templates/page/admin_button_edit.php:706
+#: templates/page/admin_button_new.php:220
+msgid "Donation Amount Text:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:711
+#: templates/page/admin_button_new.php:225
+msgid "Optional - Text for manual donation amounts. Default: Donation Amount"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:722
+#: templates/page/admin_settings.php:340
+msgid "PayPal Standard"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:722
+msgid "is now deprecated"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:726
+msgid "PayPal Standard:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:731
+#: templates/page/admin_settings.php:452
+msgid "PayPal Standard is now deprecated. You cannot modify your Standard settings. We highly recommend using PayPal Commerce."
+msgstr ""
+
+#: templates/page/admin_button_edit.php:734
+msgid "PayPal Button Size:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:740
+msgid "Default Button"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:744
+#: templates/page/admin_settings.php:354
+msgid "Small"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:748
+#: templates/page/admin_settings.php:361
+msgid "Big"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:752
+#: templates/page/admin_settings.php:368
+msgid "Big with Credit Cards"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:756
+#: templates/page/admin_settings.php:382
+msgid "Small 2 (English only)"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:760
+#: templates/page/admin_settings.php:389
+msgid "Big 2 (English only)"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:764
+#: templates/page/admin_settings.php:396
+msgid "Big 2 with Credit Cards (English only)"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:768
+#: templates/page/admin_settings.php:410
+msgid "Big 3 with logo (English only)"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:772
+msgid "Custom"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:785
+msgid "Dropdown Menu"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:790
+#: templates/page/admin_button_new.php:241
+msgid "Amount Dropdown Menu:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:799
+#: templates/page/admin_button_new.php:250
+msgid "Amount Menu Name:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:805
+#: templates/page/admin_button_new.php:255
+msgid "Optional, but required to show menu - show an amount dropdown menu."
+msgstr ""
+
+#: templates/page/admin_button_edit.php:808
+#: templates/page/admin_button_new.php:258
+msgid "Option / Amount 1:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:817
+msgid "Optional - Example Option: Size Medium Example Amount: 5.00"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:820
+#: templates/page/admin_button_new.php:276
+msgid "Option / Amount 2:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:832
+#: templates/page/admin_button_new.php:294
+msgid "Option / Amount 3:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:844
+#: templates/page/admin_button_new.php:312
+msgid "Option / Amount 4:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:856
+#: templates/page/admin_button_new.php:328
+msgid "Option / Amount 5:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:868
+#: templates/page/admin_button_new.php:343
+msgid "Option / Amount 6:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:880
+#: templates/page/admin_button_new.php:359
+msgid "Option / Amount 7:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:892
+#: templates/page/admin_button_new.php:377
+msgid "Option / Amount 8:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:904
+#: templates/page/admin_button_new.php:394
+msgid "Option / Amount 9:"
+msgstr ""
+
+#: templates/page/admin_button_edit.php:916
+#: templates/page/admin_button_new.php:411
+msgid "Option / Amount 10:"
+msgstr ""
+
+#: templates/page/admin_button_new.php:7
+msgid "New Donation Button"
+msgstr ""
+
+#: templates/page/admin_button_new.php:173
+msgid "Gateways"
+msgstr ""
+
+#: templates/page/admin_button_new.php:179
+msgid "You will be able to connect your PayPal account after saving this button"
+msgstr ""
+
+#: templates/page/admin_button_new.php:184
+msgid "You will be able to connect your Stripe account after saving this button"
+msgstr ""
+
+#: templates/page/admin_button_new.php:235
+msgid "Dropdown Menus"
+msgstr ""
+
+#: templates/page/admin_buttons.php:24
+msgid "Easy Donation Buttons"
+msgstr ""
+
+#: templates/page/admin_buttons.php:27
+msgid "New PayPal Donation Button"
+msgstr ""
+
+#: templates/page/admin_buttons.php:36
+msgid "Button created."
+msgstr ""
+
+#: templates/page/admin_buttons.php:39
+msgid "Button(s) deleted."
+msgstr ""
+
+#: templates/page/admin_buttons.php:42 templates/page/admin_orders.php:42
+msgid "No action selected."
+msgstr ""
+
+#: templates/page/admin_buttons.php:45 templates/page/admin_orders.php:45
+msgid "Nothing selected to delete."
+msgstr ""
+
+#: templates/page/admin_buttons.php:48 templates/page/admin_orders.php:48
+msgid "An error occured while processing the query. Please try again."
+msgstr ""
+
+#: templates/page/admin_orders.php:36
+msgid "Donation entry(s) deleted."
+msgstr ""
+
+#: templates/page/admin_orders.php:39
+msgid "Donation not found"
+msgstr ""
+
+#: templates/page/admin_settings.php:9
+msgid "PayPal & Stripe Settings"
+msgstr ""
+
+#: templates/page/admin_settings.php:13
+msgid "Save Settings"
+msgstr ""
+
+#: templates/page/admin_settings.php:19
+msgid "Settings Updated."
+msgstr ""
+
+#: templates/page/admin_settings.php:46 templates/page/admin_settings.php:62
+msgid "Getting Started"
+msgstr ""
+
+#: templates/page/admin_settings.php:54
+msgid "Actions"
+msgstr ""
+
+#: templates/page/admin_settings.php:65
+msgid "1. Connect Payment Accounts"
+msgstr ""
+
+#: templates/page/admin_settings.php:66
+msgid "Connect your PayPal and Stripe accounts."
+msgstr ""
+
+#: templates/page/admin_settings.php:68
+msgid "2. Make a button"
+msgstr ""
+
+#: templates/page/admin_settings.php:69 templates/page/admin_settings.php:76
+msgid "On the"
+msgstr ""
+
+#: templates/page/admin_settings.php:70
+msgid "buttons page"
+msgstr ""
+
+#: templates/page/admin_settings.php:70
+msgid "make a new button."
+msgstr ""
+
+#: templates/page/admin_settings.php:72
+msgid "3. Place button on page"
+msgstr ""
+
+#: templates/page/admin_settings.php:73
+msgid "You can place the button on your site in 3 ways. In you Page / Post editor you can use thebutton titled \"PayPal Donation Button\". You can use the \"PayPal Donation Button\" Widget. Or you can manually place the shortcode on a Page / Post."
+msgstr ""
+
+#: templates/page/admin_settings.php:75
+msgid "4. View donations"
+msgstr ""
+
+#: templates/page/admin_settings.php:76
+msgid ""
+"donations\n"
+"                                page"
+msgstr ""
+
+#: templates/page/admin_settings.php:77
+msgid "you can view the donations that have been made on your site."
+msgstr ""
+
+#: templates/page/admin_settings.php:84
+msgid "Language & Currency Settings"
+msgstr ""
+
+#: templates/page/admin_settings.php:90
+msgid "Language Settings"
+msgstr ""
+
+#: templates/page/admin_settings.php:101
+msgid "Default"
+msgstr ""
+
+#: templates/page/admin_settings.php:165
+msgid "PayPal currently supports 18 languages."
+msgstr ""
+
+#: templates/page/admin_settings.php:171
+msgid "Currency Settings"
+msgstr ""
+
+#: templates/page/admin_settings.php:258
+msgid "PayPal currently supports 25 currencies."
+msgstr ""
+
+#: templates/page/admin_settings.php:270
+msgid "PayPal Settings"
+msgstr ""
+
+#: templates/page/admin_settings.php:276
+msgid "PayPal Account"
+msgstr ""
+
+#: templates/page/admin_settings.php:289
+msgid "PayPal Options"
+msgstr ""
+
+#: templates/page/admin_settings.php:295 templates/page/admin_settings.php:510
+msgid "Sandbox Mode:"
+msgstr ""
+
+#: templates/page/admin_settings.php:316
+msgid "Disable PayPal:"
+msgstr ""
+
+#: templates/page/admin_settings.php:347
+msgid "Default Button Style:"
+msgstr ""
+
+#: templates/page/admin_settings.php:420
+msgid "Select Image"
+msgstr ""
+
+#: templates/page/admin_settings.php:421
+msgid "Custom Use your own image"
+msgstr ""
+
+#: templates/page/admin_settings.php:428
+msgid "Live Account:"
+msgstr ""
+
+#: templates/page/admin_settings.php:440
+msgid "Sandbox Account:"
+msgstr ""
+
+#: templates/page/admin_settings.php:465
+msgid "Stripe Settings"
+msgstr ""
+
+#: templates/page/admin_settings.php:471
+msgid "Stripe Account"
+msgstr ""
+
+#: templates/page/admin_settings.php:481 templates/ppcp/ppcp_status_table.php:6
+msgid "Connection status:"
+msgstr ""
+
+#: templates/page/admin_settings.php:494
+#: templates/ppcp/ppcp_status_table.php:283
+msgid "Width:"
+msgstr ""
+
+#: templates/page/admin_settings.php:500
+msgid "Max button width in pixels"
+msgstr ""
+
+#: templates/page/admin_settings.php:554 templates/page/admin_settings.php:560
+msgid "Action Settings"
+msgstr ""
+
+#: templates/page/admin_settings.php:565
+msgid "Button opens in:"
+msgstr ""
+
+#: templates/page/admin_settings.php:572
+msgid "Same window"
+msgstr ""
+
+#: templates/page/admin_settings.php:579
+msgid "New window"
+msgstr ""
+
+#: templates/page/admin_settings.php:586
+msgid "Note: PayPal can only open in a popup window."
+msgstr ""
+
+#: templates/page/admin_settings.php:591
+msgid "Prompt buyers for a shipping address:"
+msgstr ""
+
+#: templates/page/admin_settings.php:612
+msgid "Yes, and require"
+msgstr ""
+
+#: templates/page/admin_settings.php:618
+msgid "Prompt buyers to include a note with their payments:"
+msgstr ""
+
+#: templates/page/admin_settings.php:643
+msgid "Default Cancel URL:"
+msgstr ""
+
+#: templates/page/admin_settings.php:653
+msgid "If the customer goes to PayPal and clicks the cancel button, where do they go. Example:"
+msgstr ""
+
+#: templates/page/admin_settings.php:653
+msgid "cancel"
+msgstr ""
+
+#: templates/page/admin_settings.php:653 templates/page/admin_settings.php:668
+msgid "Max length: 1,024."
+msgstr ""
+
+#: templates/page/admin_settings.php:658
+msgid "Default Return URL:"
+msgstr ""
+
+#: templates/page/admin_settings.php:668
+msgid "If the customer goes to PayPal and successfully pays, where are they redirected to after. Example:"
+msgstr ""
+
+#: templates/page/admin_settings.php:679
+msgid "Get the Pro Version"
+msgstr ""
+
+#: templates/page/admin_settings.php:683
+msgid "With the Pro version you can:"
+msgstr ""
+
+#: templates/page/admin_settings.php:687
+msgid "Offer recurring donations"
+msgstr ""
+
+#: templates/page/admin_settings.php:689
+msgid "Offer daily, weekly, monthly, and yearly billing"
+msgstr ""
+
+#: templates/page/admin_settings.php:691
+msgid "Set how long should billing should continue"
+msgstr ""
+
+#: templates/page/admin_settings.php:693
+msgid "Recurring donations dropdown menu"
+msgstr ""
+
+#: templates/page/admin_settings.php:695
+msgid "Offer up to 20 amount dropdown menu options"
+msgstr ""
+
+#: templates/page/admin_settings.php:697
+msgid "No 1% Donation Fee"
+msgstr ""
+
+#: templates/page/admin_settings.php:698
+msgid "Amazing plugin support agents from USA"
+msgstr ""
+
+#: templates/page/admin_settings.php:699
+msgid "No risk, 30 day return policy"
+msgstr ""
+
+#: templates/page/admin_settings.php:700
+msgid "Many more features!"
+msgstr ""
+
+#: templates/page/admin_settings.php:703
+msgid "Upgrade Now"
+msgstr ""
+
+#: templates/page/admin_view_order.php:7
+msgid "View Donation"
+msgstr ""
+
+#: templates/page/admin_view_order.php:22
+msgid "Donation"
+msgstr ""
+
+#: templates/page/admin_view_order.php:24
+msgid "Details"
+msgstr ""
+
+#: templates/page/admin_view_order.php:32
+msgid "Transaction"
+msgstr ""
+
+#: templates/page/admin_view_order.php:37
+msgid "PayPal Transaction ID:"
+msgstr ""
+
+#: templates/page/admin_view_order.php:50
+msgid "Stripe Transaction ID:"
+msgstr ""
+
+#: templates/page/admin_view_order.php:59
+msgid "Donation Date:"
+msgstr ""
+
+#: templates/page/admin_view_order.php:70
+msgid "Item"
+msgstr ""
+
+#: templates/page/admin_view_order.php:77
+msgid "Amount:"
+msgstr ""
+
+#: templates/page/admin_view_order.php:81
+msgid "Recurring:"
+msgstr ""
+
+#: templates/page/admin_view_order.php:93
+msgid "Payer"
+msgstr ""
+
+#: templates/page/admin_view_order.php:96
+msgid "Payer Email:"
+msgstr ""
+
+#: templates/page/admin_view_order.php:100
+msgid "Payer Currency:"
+msgstr ""
+
+#: templates/page/admin_view_order.php:111
+msgid "Refund"
+msgstr ""
+
+#: templates/page/admin_view_order.php:125
+msgid "Note: If donation was set by donor as recurring on PayPal then"
+msgstr ""
+
+#: templates/page/admin_view_order.php:126
+msgid "the Purpose / Name and Donation ID fields will be unavailable."
+msgstr ""
+
+#: templates/ppcp/ppcp_false_status_table.php:5
+#: templates/ppcp/setup-account-modal.php:25
+msgid "PayPal logo"
+msgstr ""
+
+#: templates/ppcp/ppcp_false_status_table.php:8
+msgid "PayPal Express"
+msgstr ""
+
+#: templates/ppcp/ppcp_false_status_table.php:9
+#: templates/ppcp/setup-account-modal.php:33
+msgid "PayPal Advanced"
+msgstr ""
+
+#: templates/ppcp/ppcp_false_status_table.php:14
+msgid "PayPal: The all-in-one checkout solution"
+msgstr ""
+
+#: templates/ppcp/ppcp_false_status_table.php:16
+msgid "Help drive conversion by offering customers a seamless checkout experience"
+msgstr ""
+
+#: templates/ppcp/ppcp_false_status_table.php:17
+msgid "Securely accepts all major credit/debit cards and local payment methods with the strength of the PayPal network"
+msgstr ""
+
+#: templates/ppcp/ppcp_false_status_table.php:25
+msgid "Get started"
+msgstr ""
+
+#: templates/ppcp/ppcp_false_status_table.php:29
+msgid "View our simple and transparent pricing"
+msgstr ""
+
+#: templates/ppcp/ppcp_status_table.php:21
+msgid "Your PayPal account is connected in"
+msgstr ""
+
+#: templates/ppcp/ppcp_status_table.php:21
+msgid "mode."
+msgstr ""
+
+#: templates/ppcp/ppcp_status_table.php:29
+msgid "There were errors connecting your PayPal account. Resolve them in your account settings, by contacting support or by reconnecting your PayPal account."
+msgstr ""
+
+#: templates/ppcp/ppcp_status_table.php:33
+msgid "See below for more details."
+msgstr ""
+
+#: templates/ppcp/ppcp_status_table.php:43
+msgid "Please review the warnings below and resolve them in your account settings or by contacting support."
+msgstr ""
+
+#: templates/ppcp/ppcp_status_table.php:54
+msgid "PayPal account settings"
+msgstr ""
+
+#: templates/ppcp/ppcp_status_table.php:55
+msgid "PayPal support"
+msgstr ""
+
+#: templates/ppcp/ppcp_status_table.php:67
+msgid "Payments Methods Accepted"
+msgstr ""
+
+#: templates/ppcp/ppcp_status_table.php:181
+msgid "Payment button text"
+msgstr ""
+
+#: templates/ppcp/setup-account-modal.php:3
+msgid "Setup PayPal Account"
+msgstr ""
+
+#: templates/ppcp/setup-account-modal.php:7
+msgid "Select your country"
+msgstr ""
+
+#: templates/ppcp/setup-account-modal.php:10
+msgid "United States"
+msgstr ""
+
+#: templates/ppcp/setup-account-modal.php:11
+msgid "Australia"
+msgstr ""
+
+#: templates/ppcp/setup-account-modal.php:12
+msgid "Canada"
+msgstr ""
+
+#: templates/ppcp/setup-account-modal.php:13
+msgid "United Kingdom"
+msgstr ""
+
+#: templates/ppcp/setup-account-modal.php:14
+msgid "Germany"
+msgstr ""
+
+#: templates/ppcp/setup-account-modal.php:15
+msgid "France"
+msgstr ""
+
+#: templates/ppcp/setup-account-modal.php:16
+msgid "Italy"
+msgstr ""
+
+#: templates/ppcp/setup-account-modal.php:17
+msgid "Spain"
+msgstr ""
+
+#: templates/ppcp/setup-account-modal.php:26
+msgid "Accept PayPal"
+msgstr ""
+
+#: templates/ppcp/setup-account-modal.php:31
+msgid "PayPal does not currently support PayPal Advanced Card Payments in your country."
+msgstr ""
+
+#: templates/ppcp/setup-account-modal.php:34
+msgid "Accept Credit and Debit Card Payments with PayPal"
+msgstr ""
+
+#: templates/ppcp/setup-account-modal.php:36
+msgid "* Direct Credit Card option will require a PayPal Business account and additional vetting."
+msgstr ""
+
+#: templates/ppcp/setup-account-modal.php:41
+msgid "Sandbox"
+msgstr ""
+
+#: templates/ppcp/setup-account-modal.php:73
+msgid "Connect"
+msgstr ""
+
+#: templates/widgets/button_widget.php:3
+msgid "Widget Name:"
+msgstr ""
+
+#: templates/widgets/button_widget.php:22
+msgid "Name: "
+msgstr ""
+
+#: templates/widgets/button_widget.php:22
+msgid " - Amount: "
+msgstr ""
+
+#: templates/widgets/button_widget.php:22
+msgid " - ID: "
+msgstr ""

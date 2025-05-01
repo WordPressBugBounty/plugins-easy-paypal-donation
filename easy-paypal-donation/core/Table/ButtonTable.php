@@ -36,7 +36,7 @@ class ButtonTable extends WP_List_Table
 			$post_title = $posts[$count]->post_title;
 
 			if ($post_title == "" || $post_title == " " || empty($post_title)) {
-				$post_title = "(No Item Name)";
+				$post_title = esc_html__("(No Item Name)", 'easy-paypal-donation');
 			}
 
 			$shortcode = '<input readonly type="text" value="[wpedon id=' . $id . ']">';
@@ -44,7 +44,7 @@ class ButtonTable extends WP_List_Table
 			$sku = esc_attr(get_post_meta($id, 'wpedon_button_id', true));
 
 			if (empty($price)) {
-				$price = "Customer enters amount";
+				$price = esc_html__("Customer enters amount", 'easy-paypal-donation');
 			}
 
 
@@ -103,8 +103,8 @@ class ButtonTable extends WP_List_Table
 		$delete_url = wp_nonce_url($delete_bare, 'bulk-' . $this->_args['plural']);
 
 		$actions = array(
-			'edit' => '<a href="' . esc_url($edit_url) . '">Edit</a>',
-			'delete' => '<a href="' . esc_url($delete_url) . '">Delete</a>'
+			'edit' => '<a href="' . esc_url($edit_url) . '">' . esc_html__('Edit', 'easy-paypal-donation') . '</a>',
+			'delete' => '<a href="' . esc_url($delete_url) . '">' . esc_html__('Delete', 'easy-paypal-donation') . '</a>'
 		);
 
 		return sprintf('%1$s %2$s',
@@ -135,10 +135,10 @@ class ButtonTable extends WP_List_Table
 	{
 		$columns = array(
 			'cb' => '<input type="checkbox" />',
-			'product' => 'Name',
-			'shortcode' => 'Shortcode',
-			'price' => 'Amount',
-			'sku' => 'ID'
+			'product' => esc_html__('Name', 'easy-paypal-donation'),
+			'shortcode' => esc_html__('Shortcode', 'easy-paypal-donation'),
+			'price' => esc_html__('Amount', 'easy-paypal-donation'),
+			'sku' => esc_html__('ID', 'easy-paypal-donation')
 		);
 		return $columns;
 	}
@@ -148,7 +148,7 @@ class ButtonTable extends WP_List_Table
 	 */
 	function no_items()
 	{
-		_e('No buttons found.');
+		esc_html_e('No buttons found.', 'easy-paypal-donation');
 	}
 
 	/**
@@ -158,7 +158,7 @@ class ButtonTable extends WP_List_Table
 	function get_bulk_actions()
 	{
 		$actions = array(
-			'delete' => 'Delete'
+			'delete' => esc_html__('Delete', 'easy-paypal-donation')
 		);
 		return $actions;
 	}
@@ -173,7 +173,7 @@ class ButtonTable extends WP_List_Table
 			$action = 'bulk-' . $this->_args['plural'];
 
 			if (!wp_verify_nonce($nonce, $action)) {
-				wp_die('Security check fail');
+				wp_die(esc_html__('Security check fail', 'easy-paypal-donation'));
 			}
 		}
 	}

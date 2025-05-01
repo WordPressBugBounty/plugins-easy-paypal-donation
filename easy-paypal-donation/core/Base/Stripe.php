@@ -16,7 +16,6 @@ class Stripe extends BaseController
 		add_action( 'init', array($this, 'checkout_redirect'));
 		add_action('plugins_loaded', array($this, 'connect_completion'));
 		add_action('plugins_loaded', array($this, 'disconnected'));
-		add_action( 'wp_ajax_wpedon_stripe_connect_mode_change', array($this, 'connect_mode_change') );
         add_action( 'wp_ajax_wpedon_stripe_checkout_session', array($this, 'checkout_session') );
         add_action( 'wp_ajax_nopriv_wpedon_stripe_checkout_session', array($this, 'checkout_session') );
         add_action( 'plugins_loaded', array($this, 'connect_webhook_listener') );
@@ -175,28 +174,36 @@ class Stripe extends BaseController
 			$reconnect_mode = $connected['mode'] === 'sandbox' ? 'live' : 'sandbox';
 			$result = sprintf(
 				'<div class="notice inline notice-success wpedon-stripe-connect">
-				<p><strong>%s</strong><br>%sAdministrator (Owner)</p>
+				<p><strong>%s</strong><br>%s%s</p>
 			</div>
 			<div>
-				Your Stripe account is connected in <strong>%s</strong> mode. <a href="%s">Connect in <strong>%s</strong> mode</a>, or <a href="%s">disconnect this account</a>.
+				%s <strong>%s</strong> %s. <a href="%s">%s <strong>%s</strong> %s</a>, %s <a href="%s">%s</a>.
 			</div>',
 				$connected['display_name'],
-				!empty( $connected['email'] ) ? "{$connected['email']} - " : '',
+				!empty($connected['email']) ? "{$connected['email']} - " : '',
+				esc_html__('Administrator (Owner)', 'easy-paypal-donation'),
+				esc_html__('Your Stripe account is connected in', 'easy-paypal-donation'),
 				$connected['mode'],
+				esc_html__('mode', 'easy-paypal-donation'),
 				$this->connect_url($button_id, $reconnect_mode),
+				esc_html__('Connect in', 'easy-paypal-donation'),
 				$reconnect_mode,
-				$this->disconnect_url($button_id, $connected['account_id'], $connected['token'])
+				esc_html__('mode', 'easy-paypal-donation'),
+				esc_html__('or', 'easy-paypal-donation'),
+				$this->disconnect_url($button_id, $connected['account_id'], $connected['token']),
+				esc_html__('disconnect this account', 'easy-paypal-donation')
 			);
 		} else {
 			$result = sprintf(
-				'<a href="%s"" class="stripe-connect-btn">
-									<span>Connect with Stripe</span>
+				'<a href="%s" class="stripe-connect-btn">
+					<span>%s</span>
 								</a>
 								<br />
 								<br />
-								Setup Stripe Connect. WPPlugin LLC is an official Stripe Partner. Pay as you go pricing: 1%% per-transaction fee + Stripe fees. 
-								',
-				$this->connect_url($button_id)
+				%s',
+				$this->connect_url($button_id),
+				esc_html__('Connect with Stripe', 'easy-paypal-donation'),
+				esc_html__('Setup Stripe Connect. WPPlugin LLC is an official Stripe Partner. Pay as you go pricing: 1% per-transaction fee + Stripe fees.', 'easy-paypal-donation')
 			);
 		}
 
@@ -252,7 +259,7 @@ class Stripe extends BaseController
 
 		// nonce check
 		if (!isset($_GET['wpedon-nonce']) || !wp_verify_nonce($_GET['wpedon-nonce'], 'wpedon-stripe-connect')) {
-			wp_die('Security check failed');
+			wp_die(esc_html__('Security check failed', 'easy-paypal-donation'));
 		}
 
 		$account_id = sanitize_text_field($_GET['account_id']);
@@ -304,7 +311,7 @@ class Stripe extends BaseController
 
 		// nonce check
 		if (!isset($_GET['wpedon-nonce']) || !wp_verify_nonce($_GET['wpedon-nonce'], 'wpedon-stripe-disconnect')) {
-			wp_die('Security check failed');
+			wp_die(esc_html__('Security check failed', 'easy-paypal-donation'));
 		}
 
 		$mode = $_GET['mode'] === 'live' ? 'live' : 'sandbox';
@@ -409,49 +416,6 @@ function connection_data($button_id) {
     ];
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	/**
-	 * connect mode change
-	 */
-	function connect_mode_change()
-	{
-		if (!wp_verify_nonce($_POST['nonce'], 'wpedon-request') || !current_user_can('manage_options')) {
-			wp_send_json_error();
-		}
-
-		$val = intval($_POST['val']);
-		$options = Option::get();
-		$button_id = isset($_POST['button_id']) ? intval($_POST['button_id']) : 0;
-		if (empty($button_id)) {
-			$options['mode_stripe'] = in_array($val, [1, 2]) ? $val : 2;
-			Option::update($options);
-		} else {
-			$mode_stripe = in_array($val, [1, 2]) ? $val : 0;
-			update_post_meta($button_id, '_wpedon_stripe_mode', $mode_stripe);
-		}
-
-		wp_send_json_success([
-			'statusHtml' => $this->connection_status_html($button_id)
-		]);
-	}
-
 	/**
 	 * checkout session
 	 */
@@ -459,7 +423,7 @@ function connection_data($button_id) {
 	{
 		if (!wp_verify_nonce($_POST['nonce'], 'wpedon-frontend-request')) {
 			wp_send_json_error([
-				'message' => 'Security error. The payment has not been made. Please reload the page and try again.'
+				'message' => esc_html__('Security error. The payment has not been made. Please reload the page and try again.', 'easy-paypal-donation')
 			]);
 		}
 
@@ -470,7 +434,7 @@ function connection_data($button_id) {
 		$stripe_connection_data = $this->connection_data($data['button_id']);
 		if (empty($stripe_connection_data)) {
 			wp_send_json_error([
-				'message' => 'Stripe connection error. Please contact the site administrator.'
+				'message' => esc_html__('Stripe connection error. Please contact the site administrator.', 'easy-paypal-donation')
 			]);
 		}
 
@@ -512,7 +476,7 @@ function connection_data($button_id) {
 			$shipping_options = [
 				[
 					'shipping_rate_data' => [
-						'display_name' => 'Fixed amount',
+						'display_name' => esc_html__('Fixed amount', 'easy-paypal-donation'),
 						'type' => 'fixed_amount',
 						'fixed_amount' => [
 							'amount' => Func::format_stripe_amount($data['shipping'], $data['currency']),
@@ -568,7 +532,7 @@ function connection_data($button_id) {
 
 		if (empty($checkout_session->session_id) || empty($checkout_session->stripe_key)) {
 			wp_send_json_error([
-				'message' => !empty($checkout_session->message) ? $checkout_session->message : 'An unexpected error occurred. Please try again.'
+				'message' => !empty($checkout_session->message) ? $checkout_session->message : esc_html__('An unexpected error occurred. Please try again.', 'easy-paypal-donation')
 			]);
 		}
 
@@ -628,7 +592,7 @@ function connection_data($button_id) {
 			!isset($_REQUEST['customer_email'])) {
 			wp_send_json([
 				'result' => 'failed',
-				'message' => 'One or more required parameters are not set'
+				'message' => esc_html__('One or more required parameters are not set', 'easy-paypal-donation')
 			]);
 		}
 
@@ -647,7 +611,7 @@ function connection_data($button_id) {
 			$mode != $_REQUEST['mode']) {
 			wp_send_json([
 				'result' => 'failed',
-				'message' => 'The token is invalid'
+				'message' => esc_html__('The token is invalid', 'easy-paypal-donation')
 			]);
 		};
 

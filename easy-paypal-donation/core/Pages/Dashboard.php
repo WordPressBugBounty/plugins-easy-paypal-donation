@@ -16,12 +16,12 @@ class Dashboard
 	 * admin menu
 	 */
 	function menu() {
-		add_menu_page("Easy Donations", "Donations with PayPal & Stripe", "manage_options", "wpedon_menu", array(new OrderPage(), 'render'),'dashicons-cart','28.5');
+		add_menu_page(__("Easy Donations", 'easy-paypal-donation'), __("Donations with PayPal & Stripe", 'easy-paypal-donation'), "manage_options", "wpedon_menu", array(new OrderPage(), 'render'),'dashicons-cart','28.5');
 
-		add_submenu_page("wpedon_menu", "Donations", "Donations", "manage_options", "wpedon_menu", array(new OrderPage(), 'render'));
+		add_submenu_page("wpedon_menu", __("Donations", 'easy-paypal-donation'), __("Donations", 'easy-paypal-donation'), "manage_options", "wpedon_menu", array(new OrderPage(), 'render'));
 
-		add_submenu_page("wpedon_menu", "Buttons", "Buttons", "manage_options", "wpedon_buttons", [new ButtonPage(), 'render']);
+		add_submenu_page("wpedon_menu", __("Buttons", 'easy-paypal-donation'), __("Buttons", 'easy-paypal-donation'), "manage_options", "wpedon_buttons", [new ButtonPage(), 'render']);
 
-		add_submenu_page("wpedon_menu", "Settings", "Settings", "manage_options", "wpedon_settings", array(new SettingPage(), 'render'));
+		add_submenu_page("wpedon_menu", __("Settings", 'easy-paypal-donation'), __("Settings", 'easy-paypal-donation'), "manage_options", "wpedon_settings", array(new SettingPage(), 'render'));
 	}
 }

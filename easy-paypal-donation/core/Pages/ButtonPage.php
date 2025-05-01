@@ -56,12 +56,12 @@ class ButtonPage
 			// check nonce for security
 			$nonce = $_REQUEST['_wpnonce'];
 			if (!wp_verify_nonce($nonce, 'new_wpedon_button')) {
-				echo "Nonce verification failed.";
+				echo esc_html__("Nonce verification failed.", 'easy-paypal-donation');
 				exit;
 			}
 			// price is Required for stripe
 			if (empty($_POST['wpedon_button_price'])) {
-				$message = "Price Required.";
+				$message = esc_html__("Price Required.", 'easy-paypal-donation');
 				$error = "1";
 			}
 
@@ -172,7 +172,7 @@ class ButtonPage
 		// check nonce for security
 		$nonce = $_REQUEST['_wpnonce'];
 		if (!wp_verify_nonce($nonce, 'edit_' . $post_id)) {
-			echo "Nonce verification failed.";
+			echo esc_html__("Nonce verification failed.", 'easy-paypal-donation');
 			exit;
 		}
 
@@ -182,7 +182,7 @@ class ButtonPage
 			// check nonce for security
 			$nonce = $_REQUEST['_wpnonce'];
 			if (!wp_verify_nonce($nonce, 'edit_' . $post_id)) {
-				echo "Nonce verification failed.";
+				echo esc_html__("Nonce verification failed.", 'easy-paypal-donation');
 				exit;
 			}
 
@@ -193,7 +193,7 @@ class ButtonPage
 
 			// price is Required for stripe
 			if (empty($_POST['wpedon_button_price'])) {
-				$message = "Price Required.";
+				$message = esc_html__("Price Required.", 'easy-paypal-donation');
 				$error = "1";
 			}
 
@@ -301,7 +301,7 @@ class ButtonPage
 				update_post_meta($post_id, 'wpedon_button_disable_stripe', sanitize_text_field($_POST['wpedon_button_disable_stripe']));
 				update_post_meta($post_id, 'wpedon_button_stripe_width', sanitize_text_field($_POST['wpedon_button_stripe_width']));
 
-				$message = "Saved";
+				$message = esc_html__("Saved", 'easy-paypal-donation');
 			}
 		}
 
@@ -326,7 +326,7 @@ class ButtonPage
 		$action = 'bulk-products';
 
 		if ( ! wp_verify_nonce( $nonce, $action ) ) {
-			wp_die('Security check fail');
+			wp_die(esc_html__('Security check fail', 'easy-paypal-donation'));
 		}
 
 		$post_id = null;

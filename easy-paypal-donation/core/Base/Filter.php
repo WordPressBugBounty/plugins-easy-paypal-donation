@@ -22,9 +22,9 @@ class Filter extends BaseController
 		if ( isset( $links['edit'] ) ) {
 			unset( $links['edit'] );
 		}
-		$links[] = '<a href="https://wordpress.org/support/plugin/easy-paypal-donation" target="_blank">' . __( 'Support' ) . '</a>';
-		$links[] = '<a target="_blank" href="https://wpplugin.org/downloads/paypal-donation-pro/">' . __( 'Pro Version' ) . '</a>';
-		$links[] = '<a href="admin.php?page=wpedon_settings">' . __( 'Settings' ) . '</a>';
+		$links[] = '<a href="https://wordpress.org/support/plugin/easy-paypal-donation" target="_blank">' . __('Support', 'easy-paypal-donation') . '</a>';
+		$links[] = '<a target="_blank" href="https://wpplugin.org/downloads/paypal-donation-pro/">' . __('Pro Version', 'easy-paypal-donation') . '</a>';
+		$links[] = '<a href="admin.php?page=wpedon_settings">' . __('Settings', 'easy-paypal-donation') . '</a>';
 		return $links;
 	}
 
@@ -40,7 +40,7 @@ class Filter extends BaseController
 		if ( 'default' == $domain and 'Insert into Post' == $text )
 		{
 			remove_filter( 'gettext', 'wpedon_change_button_text' );
-			return 'Use this image';
+			return __('Use this image', 'easy-paypal-donation');
 		}
 		return $translation;
 	}

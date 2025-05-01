@@ -16,8 +16,8 @@ class Enqueue extends BaseController
 	 * Admin dashboard styles/scripts
 	 */
 	function admin_enqueue() {
-		wp_enqueue_style('wpedon-admin-css', $this->plugin_url . '/assets/css/wpedon-admin.css', [], $this->plugin_version);
-		wp_enqueue_script('wpedon-admin-js', $this->plugin_url . '/assets/js/wpedon-admin.js', ['jquery'],$this->plugin_version, true);
+		wp_enqueue_style('wpedon-admin-css', WPEDON_FREE_URL . 'assets/css/wpedon-admin.css', [], $this->plugin_version);
+		wp_enqueue_script('wpedon-admin-js', WPEDON_FREE_URL . 'assets/js/wpedon-admin.js', ['jquery'],$this->plugin_version, true);
 
 		$args = [
 			'ajaxUrl' => admin_url('admin-ajax.php'),
@@ -34,9 +34,9 @@ class Enqueue extends BaseController
 	 */
 	function client_enqueue() {
 		$options = \WPEasyDonation\Helpers\Option::get();
-		wp_enqueue_style( 'wpedon', $this->plugin_url . '/assets/css/wpedon.css', [],$this->plugin_version );
+		wp_enqueue_style( 'wpedon', WPEDON_FREE_URL . 'assets/css/wpedon.css', [],$this->plugin_version );
 		wp_enqueue_script( 'stripe-js', 'https://js.stripe.com/v3/', [], null,true );
-		wp_enqueue_script( 'wpedon', $this->plugin_url . '/assets/js/wpedon.js', ['jquery', 'stripe-js'], $this->plugin_version,true );
+		wp_enqueue_script( 'wpedon', WPEDON_FREE_URL . 'assets/js/wpedon.js', ['jquery', 'stripe-js'], $this->plugin_version,true );
 		wp_localize_script( 'wpedon', 'wpedon', [
 			'ajaxUrl' => admin_url('admin-ajax.php'),
 			'nonce' => wp_create_nonce( 'wpedon-frontend-request' ),

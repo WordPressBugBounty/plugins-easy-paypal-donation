@@ -16,17 +16,25 @@ class NoticeController
 		add_action('admin_notices',  array($this, 'ppcp_notice'));
 		add_action('admin_init', array($this, 'stripe_connect_notice_dismiss'));
 		add_action('admin_init', array($this, 'ppcp_notice_dismiss'));
+		add_action('admin_notices', array($this, 'localhost_notice'));
 	}
 
 	/**
 	 * Show admin activation notice
 	 */
 	function activation_notice() {
-		$options = \WPEasyDonation\Helpers\Option::get();
-		if (empty($options['activation_notice_shown'])) {
-			Template::getTemplate('notice/activation_notice.php');
-			$options['activation_notice_shown'] = 1;
-			\WPEasyDonation\Helpers\Option::update($options);
+		$transient_key = 'wpedon_activation_notice_' . get_current_user_id();
+		if (get_transient($transient_key)) {
+			$settings_url = get_admin_url(null, 'admin.php?page=wpedon_settings');
+			?>
+			<div class="notice notice-info">
+				<p>
+					<?php _e('Accept Donations with PayPal & Stripe is now active!', 'easy-paypal-donation'); ?> 
+					<a href="<?php echo esc_url($settings_url); ?>"><?php _e('Click here to configure your payment settings.', 'easy-paypal-donation'); ?></a>
+				</p>
+			</div>
+			<?php
+			delete_transient($transient_key);
 		}
 	}
 
@@ -64,11 +72,30 @@ class NoticeController
 		Template::getTemplate('notice/ppcp_notice.php');
 	}
 
+	/**
+	 * Show localhost environment notice
+	 */
+	function localhost_notice() {
+		// Check if we're on the donations page
+		if (!isset($_GET['page']) || $_GET['page'] !== 'wpedon_menu') {
+			return;
+		}
 
+		// Check if site is running on localhost
+		$is_localhost = in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1')) || 
+						strpos($_SERVER['HTTP_HOST'], 'localhost') !== false ||
+						strpos($_SERVER['HTTP_HOST'], '.local') !== false;
 
-
-
-
+		if ($is_localhost) {
+			?>
+			<div class="notice notice-warning">
+				<p>
+					<?php _e('Your website appears to be a testing website / a localhost environment - Please note that "payment status" may not change to "completed" until your website is public on the internet.', 'easy-paypal-donation'); ?>
+				</p>
+			</div>
+			<?php
+		}
+	}
 
 	/**
 	 * Dismiss admin notice for Stripe Connect.
@@ -83,8 +110,6 @@ class NoticeController
 		\WPEasyDonation\Helpers\Option::update($options);
 		die();
 	}
-
-
 
 	/**
 	 * Dismiss admin notice for PayPal Commerce Platform.

@@ -14,9 +14,9 @@ class ButtonWidget extends WP_Widget
 	{
 		$widget_ops = array(
 			'classname' => 'wpedon_widget',
-			'description' => 'Easy Donation Button',
+			'description' => __('Easy Donation Button', 'easy-paypal-donation'),
 		);
-		parent::__construct('wpedon_widget', 'Easy Donation Button', $widget_ops);
+		parent::__construct('wpedon_widget', __('Easy Donation Button', 'easy-paypal-donation'), $widget_ops);
 	}
 
 	/**

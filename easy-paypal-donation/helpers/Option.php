@@ -55,7 +55,7 @@ class Option
 			'updated_time' => 0,
 			'ppcp_width' => 300,
 			'stripe_width' => 300,
-			'ppcp_acdc_button_text' => 'PLACE ORDER'
+			'ppcp_acdc_button_text' => esc_html__('PLACE ORDER', 'easy-paypal-donation')
 		];
 	}
 

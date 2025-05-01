@@ -23,6 +23,7 @@ final class Init
 			Base\WidgetController::class,
 			Base\Ipn::class,
 			Pages\Dashboard::class,
+			Base\DashboardWidget::class
 		];
 	}
 
@@ -34,7 +35,9 @@ final class Init
 	{
 		foreach (self::getServices() as $class) {
 			$service = self::instantiate($class);
-			if (method_exists($service, 'register')) $service->register();
+			if (method_exists($service, 'register')) {
+				$service->register();
+			}
 		}
 	}
 

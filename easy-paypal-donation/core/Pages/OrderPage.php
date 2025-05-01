@@ -37,10 +37,7 @@ class OrderPage
 	{
 		$table = new OrderTable();
 		$table->prepare_items();
-		ob_start();
-		$table->display();
-		$tableHtml = ob_get_clean();
-		Template::getTemplate('page/admin_orders.php', true, ['table'=>$tableHtml]);
+		Template::getTemplate('page/admin_orders.php', true, ['table'=>$table]);
 	}
 
 	/**
@@ -52,7 +49,7 @@ class OrderPage
 		$action = 'bulk-orders';
 
 		if ( ! wp_verify_nonce( $nonce, $action ) ) {
-			wp_die('Security check fail');
+			wp_die(esc_html__('Security check fail', 'easy-paypal-donation'));
 		}
 		$post_id = null;
 		if (isset($_GET['inline']) && $_GET['inline'] == "true") {

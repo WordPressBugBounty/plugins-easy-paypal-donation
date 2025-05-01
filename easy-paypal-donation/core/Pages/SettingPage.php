@@ -11,11 +11,14 @@ class SettingPage
 	 */
 	public function render() {
 		if ( !current_user_can( 'manage_options' ) )  {
-			wp_die( __( 'You do not have sufficient permissions to access this page. Please sign in as an administrator.' ) );
+			wp_die( esc_html__( 'You do not have sufficient permissions to access this page. Please sign in as an administrator.', 'easy-paypal-donation' ) );
 		}
 		$options = \WPEasyDonation\Helpers\Option::get();
 		$active_tab = isset( $_REQUEST['tab'] ) ? intval( $_REQUEST['tab'] ) : 1;
 		if ( !empty( $_POST['update'] ) ) {
+			if (!check_admin_referer('wpedon_settings_save', 'wpedon_nonce')) {
+				wp_die(__('Nonce verification failed', 'easy-paypal-donation'));
+			}
 			$this->update($options, $_POST);
 			$options = \WPEasyDonation\Helpers\Option::get();
 		}
