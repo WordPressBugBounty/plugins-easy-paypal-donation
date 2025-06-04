@@ -325,3 +325,7 @@
 	outline-width: unset !important;
 	outline-style:  unset !important;
 }
+
+.wpedon-stripe-button {
+    text-decoration: unset !important;
+}

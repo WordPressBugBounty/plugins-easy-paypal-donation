@@ -370,7 +370,11 @@ function wpedon_shortcode($atts) {
 	if ($value['opens'] == "2") { $target = "_blank"; }
 
 	// alignment
-	switch ( $atts['align'] ) {
+	// Check button-specific align setting first, then shortcode attribute, then default
+	$button_align = get_post_meta($post_id, 'wpedon_button_align', true);
+	$align_value = !empty($button_align) ? $button_align : $atts['align'];
+	
+	switch ( $align_value ) {
 		case 'left':
 			$alignment = ' wpedon-align-left';
 			break;

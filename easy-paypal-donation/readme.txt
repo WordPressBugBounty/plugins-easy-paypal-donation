@@ -6,7 +6,7 @@ Author URI: https://wpplugin.org
 Requires at least: 3.0
 Tested up to: 6.8
 Requires PHP: 5.4
-Stable tag: 1.5
+Stable tag: 1.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,11 @@ Yes, there is no limit to the amount of PayPal donations buttons that you can pu
 6. Button Inserter
 
 == Changelog ==
+
+= 1.5.1 =
+* 6/4/25
+* New - Added a horizontal alignment option on the buttons settings page in the Options section. This can also manually be passed by using the align attribute on the shortcode like [wpedon id=836 align=right] with possible values being left, center, and right.
+* Fix - Added css to make sure Stripe button text does not contain underline text.
 
 = 1.5 =
 * 4/30/25

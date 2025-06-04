@@ -701,6 +701,19 @@
                     </td>
                     <td><?php _e('Optional - Show the currency (example: USD) after the amount.', 'easy-paypal-donation'); ?></td>
                 </tr>
+                <tr>
+                    <td><?php _e('Alignment:', 'easy-paypal-donation'); ?></td>
+                    <td>
+                        <?php $wpedon_button_align = get_post_meta($post_id, 'wpedon_button_align', true); ?>
+                        <select name="wpedon_button_align" class="wpedon-button-settings-select">
+                            <option value="" <?php echo empty($wpedon_button_align) ? 'selected' : ''; ?>><?php _e('Default (Left)', 'easy-paypal-donation'); ?></option>
+                            <option value="left" <?php echo $wpedon_button_align == 'left' ? 'selected' : ''; ?>><?php _e('Left', 'easy-paypal-donation'); ?></option>
+                            <option value="center" <?php echo $wpedon_button_align == 'center' ? 'selected' : ''; ?>><?php _e('Center', 'easy-paypal-donation'); ?></option>
+                            <option value="right" <?php echo $wpedon_button_align == 'right' ? 'selected' : ''; ?>><?php _e('Right', 'easy-paypal-donation'); ?></option>
+                        </select>
+                    </td>
+                    <td><?php _e('Optional - Set the button alignment when displayed.', 'easy-paypal-donation'); ?></td>
+                </tr>
 				
 		        <tr>
                     <td><?php _e('Donation Amount Text:', 'easy-paypal-donation'); ?></td>
