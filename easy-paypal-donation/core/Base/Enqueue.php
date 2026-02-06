@@ -35,8 +35,19 @@ class Enqueue extends BaseController
 	function client_enqueue() {
 		$options = \WPEasyDonation\Helpers\Option::get();
 		wp_enqueue_style( 'wpedon', WPEDON_FREE_URL . 'assets/css/wpedon.css', [],$this->plugin_version );
-		wp_enqueue_script( 'stripe-js', 'https://js.stripe.com/v3/', [], null,true );
-		wp_enqueue_script( 'wpedon', WPEDON_FREE_URL . 'assets/js/wpedon.js', ['jquery', 'stripe-js'], $this->plugin_version,true );
+
+		// Only load Stripe JS if Stripe is connected (global or per-button)
+		$has_stripe = !empty($options['acct_id_live']) 
+		           || !empty($options['acct_id_sandbox']) 
+		           || get_option('wpedon_button_stripe_connected');
+
+		if ($has_stripe) {
+			wp_enqueue_script( 'stripe-js', 'https://js.stripe.com/v3/', [], null, true );
+			wp_enqueue_script( 'wpedon', WPEDON_FREE_URL . 'assets/js/wpedon.js', ['jquery', 'stripe-js'], $this->plugin_version, true );
+		} else {
+			wp_enqueue_script( 'wpedon', WPEDON_FREE_URL . 'assets/js/wpedon.js', ['jquery'], $this->plugin_version, true );
+		}
+
 		wp_localize_script( 'wpedon', 'wpedon', [
 			'ajaxUrl' => admin_url('admin-ajax.php'),
 			'nonce' => wp_create_nonce( 'wpedon-frontend-request' ),

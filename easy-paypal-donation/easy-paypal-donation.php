@@ -6,18 +6,18 @@ if (!defined('ABSPATH')) {
 
 /*
 Plugin Name: Accept Donations with PayPal & Stripe
-Plugin URI: https://wordpress.org/plugins/easy-paypal-donation/
+Plugin URI: https://wpplugin.org/downloads/paypal-donation-pro/
 Description: A simple and easy way to accept PayPal donations on your website.
 Tags: donation, donate, donations, charity, paypal, paypal donation, ecommerce, gateway, payment, paypal button, paypal donation, paypal donate, paypal payment, paypal plugin
 Author: Scott Paterson
 Author URI: https://wpplugin.org
 License: GPL2
-Version: 1.5.1
+Version: 1.5.4
 Text Domain: easy-paypal-donation
 Domain Path: /languages
 */
 
-/*  Copyright 2014-2025 Scott Paterson
+/*  Copyright 2014-2026 Scott Paterson
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -43,7 +43,7 @@ if (file_exists(dirname(__FILE__).'/vendor/autoload.php')) {
 }
 
 define('WPEDON_FREE_DIR_PATH', plugin_dir_path(__FILE__));
-define('WPEDON_FREE_VERSION_NUM', '1.5.1');
+define('WPEDON_FREE_VERSION_NUM', '1.5.4');
 define( 'WPEDON_FREE_PPCP_API', 'https://wpplugin.org/ppcp-wpedon/');
 define( 'WPEDON_FREE_STRIPE_CONNECT_ENDPOINT', 'https://wpplugin.org/stripe-wpedon/connect.php');
 
@@ -101,12 +101,57 @@ register_activation_hook(__FILE__, function () {
 	
 	// Set transient for activation notice
 	set_transient('wpedon_activation_notice_' . get_current_user_id(), true);
+	
+	// Check if any buttons have Stripe connected and set the flag
+	wpedon_update_button_stripe_connected_flag();
 });
+
+/**
+ * Check if any buttons have Stripe connected and update the flag.
+ * Used during activation and upgrades.
+ */
+function wpedon_update_button_stripe_connected_flag() {
+	$args = array(
+		'post_type'      => 'wpplugin_don_button',
+		'posts_per_page' => 1,
+		'fields'         => 'ids',
+		'meta_query'     => array(
+			'relation' => 'OR',
+			array(
+				'key'     => '_wpedon_stripe_account_id_live',
+				'value'   => '',
+				'compare' => '!='
+			),
+			array(
+				'key'     => '_wpedon_stripe_account_id_sandbox',
+				'value'   => '',
+				'compare' => '!='
+			)
+		)
+	);
+
+	$query = new WP_Query($args);
+
+	if ($query->have_posts()) {
+		update_option('wpedon_button_stripe_connected', '1');
+	} else {
+		delete_option('wpedon_button_stripe_connected');
+	}
+}
 
 register_deactivation_hook(__FILE__, function () {});
 if ( !empty( get_option( 'wpedon_settingsoptions' ) ) ) {
 	\WPEasyDonation\Helpers\Option::oldOptions();
 }
+
+// Check for upgrade and run migration if needed
+add_action('init', function() {
+	$wpedon_db_version = get_option('wpedon_db_version', '0');
+	if (version_compare($wpedon_db_version, '1.5.4', '<')) {
+		wpedon_update_button_stripe_connected_flag();
+		update_option('wpedon_db_version', '1.5.4');
+	}
+});
 
 // public shortcode
 include_once('includes/public_shortcode.php');

@@ -56,7 +56,7 @@ class OrderTable extends WP_List_Table
 
 		// Create view links
 		foreach ($statuses as $status => $label) {
-			$count = ($status === 'all') ? count($all_posts) : ($counts[$status] ?? 0);
+			$count = ($status === 'all') ? count($all_posts) : (isset($counts[$status]) ? $counts[$status] : 0);
 			$class = ($current === $status) ? ' class="current"' : '';
 			$url = add_query_arg('payment_status', $status);
 			$views[$status] = sprintf(

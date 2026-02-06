@@ -105,6 +105,11 @@ class NoticeController
 			return;
 		}
 
+		// Only allow admins to dismiss notices
+		if (!current_user_can('manage_options')) {
+			return;
+		}
+
 		$options = \WPEasyDonation\Helpers\Option::get();
 		$options['stripe_connect_notice_dismissed'] = 1;
 		\WPEasyDonation\Helpers\Option::update($options);
@@ -116,6 +121,11 @@ class NoticeController
 	 */
 	function ppcp_notice_dismiss() {
 		if (empty($_GET['wpedon_admin_ppcp_notice_dismiss'])) {
+			return;
+		}
+
+		// Only allow admins to dismiss notices
+		if (!current_user_can('manage_options')) {
 			return;
 		}
 

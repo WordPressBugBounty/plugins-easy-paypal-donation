@@ -4,9 +4,9 @@ Donate link: https://wpplugin.org/donate/
 Tags: donation, donate, charity, paypal, ecommerce
 Author URI: https://wpplugin.org
 Requires at least: 3.0
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 5.4
-Stable tag: 1.5.1
+Stable tag: 1.5.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,22 @@ Yes, there is no limit to the amount of PayPal donations buttons that you can pu
 6. Button Inserter
 
 == Changelog ==
+
+= 1.5.4 =
+* 1/28/26
+* Performance - Stripe JS assets are now only loaded when Stripe is connected.
+* Fix - Stripe mode setting now saves correctly on the button edit page.
+* Fix - PayPal debit/credit card payments now correctly redirect to the success URL when configured.
+* Fix - Added unique error message when Stripe is disabled on the settings page.
+
+= 1.5.3 =
+* 1/9/26
+* Fix - Various security improvements.
+
+= 1.5.2 =
+* 12/29/25
+* Security - Added validation to prevent open redirect vulnerability in Stripe checkout error handling.
+* Fix - Fixed translation loading timing issue that caused warnings in WordPress 6.7+.
 
 = 1.5.1 =
 * 6/4/25

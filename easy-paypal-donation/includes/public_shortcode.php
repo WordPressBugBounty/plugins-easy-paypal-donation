@@ -26,9 +26,12 @@ function wpedon_shortcode($atts) {
 	$stripe = new \WPEasyDonation\Base\Stripe();
 	$stripe_account_data = $stripe->connection_data($post_id);
 	
-	
-
+	// Check if both payment methods are unavailable
 	if (empty($paypal_connection_data) && empty($stripe_account_data)) {
+		// Check if Stripe is explicitly disabled (returns null) vs not configured (returns false)
+		if ($stripe_account_data === null) {
+			return '(' . esc_html__('Stripe is disabled on the settings page.', 'easy-paypal-donation') . ')';
+		}
 		return '(' . esc_html__('Please enter your Payment methods data on the settings pages.', 'easy-paypal-donation') . ')';
 	}
 
@@ -708,8 +711,8 @@ function wpedon_ppcp_html( $connection_data, $rand_string ) {
               return response.json();
             }).then(function(data) {
               if (data.success) {
-			    var return_url = '<?= $connection_data['return']; ?>';
-                if (return_url.length && fundingSource !== 'card') {
+			    var return_url = '<?php echo esc_js($connection_data['return']); ?>';
+                if (return_url.length) {
                   window.location.href = return_url;
                 } else {
                   message_<?php echo $rand_string; ?>.innerHTML = '<span class="payment-success">' + 
@@ -877,7 +880,7 @@ function wpedon_ppcp_html( $connection_data, $rand_string ) {
               return res.json();
             }).then(function (data) {
               if (data.success) {
-			    var return_url = '<?= $connection_data['return']; ?>';
+			    var return_url = '<?php echo esc_js($connection_data['return']); ?>';
                 if (return_url.length) {
                   window.location.href = return_url;
                 } else {

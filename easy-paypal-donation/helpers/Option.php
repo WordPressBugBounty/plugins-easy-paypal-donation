@@ -55,7 +55,7 @@ class Option
 			'updated_time' => 0,
 			'ppcp_width' => 300,
 			'stripe_width' => 300,
-			'ppcp_acdc_button_text' => esc_html__('PLACE ORDER', 'easy-paypal-donation')
+			'ppcp_acdc_button_text' => 'PLACE ORDER'
 		];
 	}
 
@@ -66,8 +66,15 @@ class Option
 	public static function get():array {
 		$default = self::defaultOptions();
 		$options = (array) get_option( 'wpedon_settings' );
+		
+		$merged = array_merge( $default, $options );
+		
+		// Translate default button text if not customized
+		if ( $merged['ppcp_acdc_button_text'] === 'PLACE ORDER' && did_action('init') ) {
+			$merged['ppcp_acdc_button_text'] = esc_html__('PLACE ORDER', 'easy-paypal-donation');
+		}
 
-		return array_merge( $default, $options );
+		return $merged;
 	}
 
 	/**

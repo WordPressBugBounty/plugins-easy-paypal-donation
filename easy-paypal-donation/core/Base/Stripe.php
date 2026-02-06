@@ -220,18 +220,34 @@ class Stripe extends BaseController
 			!empty( $_GET['si'] ) &&
 			!empty( $_GET['rf'] )
 		) {
+			// Validate rf parameter to prevent open redirect
+			$rf = esc_url_raw( $_GET['rf'] );
+			$site_host = wp_parse_url( home_url(), PHP_URL_HOST );
+			$rf_parsed = wp_parse_url( $rf );
+			
+			// Only allow same-host URLs or safe relative paths (not protocol-relative)
+			if ( ! empty( $rf_parsed['host'] ) && $rf_parsed['host'] !== $site_host ) {
+				$rf = home_url();
+			} elseif ( empty( $rf_parsed['host'] ) && strpos( $rf, '//' ) === 0 ) {
+				$rf = home_url();
+			}
+			
+			$rf = esc_url( $rf );
+			$sk = esc_js( sanitize_text_field( $_GET['sk'] ) );
+			$ai = esc_js( sanitize_text_field( $_GET['ai'] ) );
+			$si = esc_js( sanitize_text_field( $_GET['si'] ) );
 			?>
 			<script src="https://js.stripe.com/v3/"></script>
 			<script>
         try {
-          const stripe = Stripe('<?php echo sanitize_text_field($_GET['sk']); ?>', {
-            stripeAccount: '<?php echo sanitize_text_field($_GET['ai']); ?>'
+          const stripe = Stripe('<?php echo $sk; ?>', {
+            stripeAccount: '<?php echo $ai; ?>'
           });
           stripe.redirectToCheckout({
-            sessionId: '<?php echo sanitize_text_field($_GET['si']); ?>'
+            sessionId: '<?php echo $si; ?>'
           });
         } catch (error) {
-          let rf = '<?php echo esc_url($_GET['rf']); ?>';
+          let rf = '<?php echo $rf; ?>';
           rf += rf.indexOf('?') !== -1 ? '&' : '?';
           rf += 'wpedon_stripe_success=0';
           window.location.href = rf;
@@ -280,6 +296,8 @@ class Stripe extends BaseController
 		} else {
 			update_post_meta($button_id, '_wpedon_stripe_account_id_' . $mode, $account_id);
 			update_post_meta($button_id, '_wpedon_stripe_token_' . $mode, $token);
+			// Set flag indicating at least one button has Stripe connected
+			update_option('wpedon_button_stripe_connected', '1');
 		}
 
 		$return_url = $this->connect_tab_url($button_id);
@@ -293,6 +311,7 @@ class Stripe extends BaseController
 		$return_url = apply_filters('wpedon_stripe_connect_return_url', $return_url);
 
 		wp_redirect($return_url);
+		exit;
 	}
 
 	/**
@@ -329,6 +348,8 @@ class Stripe extends BaseController
 			update_post_meta($button_id, '_wpedon_stripe_mode', $mode_stripe);
 			update_post_meta($button_id, '_wpedon_stripe_account_id_' . $mode, '');
 			update_post_meta($button_id, '_wpedon_stripe_token_' . $mode, '');
+			// Check if any other buttons still have Stripe connected
+			$this->update_button_stripe_connected_flag();
 		}
 
 		$return_url = $this->connect_tab_url($button_id);
@@ -342,6 +363,7 @@ class Stripe extends BaseController
 		$return_url = apply_filters('wpedon_stripe_disconnect_return_url', $return_url);
 
 		wp_redirect($return_url);
+		exit;
 	}
 
 
@@ -364,32 +386,32 @@ function connection_data($button_id) {
     // Fetch the mode, checking post meta first
     $modeValue = get_post_meta($button_id, '_wpedon_stripe_mode', true);
     if ($modeValue === '') { // Check if the post meta is empty, meaning not set
-        $modeValue = $options['mode_stripe'] ?? '1'; // Default to '1' if not set in options either
+        $modeValue = isset($options['mode_stripe']) ? $options['mode_stripe'] : '1'; // Default to '1' if not set in options either
     }
     $mode = $modeValue === '2' ? 'live' : 'sandbox';
 
     // Fetch account ID
     $account_id = get_post_meta($button_id, "_wpedon_stripe_account_id_{$mode}", true);
     if (empty($account_id)) {
-        $account_id = $options["acct_id_{$mode}"] ?? '';
+        $account_id = isset($options["acct_id_{$mode}"]) ? $options["acct_id_{$mode}"] : '';
     }
 
     // Fetch token
     $token = get_post_meta($button_id, "_wpedon_stripe_token_{$mode}", true);
     if (empty($token)) {
-        $token = $options["stripe_connect_token_{$mode}"] ?? '';
+        $token = isset($options["stripe_connect_token_{$mode}"]) ? $options["stripe_connect_token_{$mode}"] : '';
     }
 
     // Fetch show setting
     $show = get_post_meta($button_id, 'wpedon_button_disable_stripe', true);
     if ($show === '') {
-        $show = $options['disable_stripe'] ?? '0'; // Default to '0' if not set in options
+        $show = isset($options['disable_stripe']) ? $options['disable_stripe'] : '0'; // Default to '0' if not set in options
     }
 
     // Fetch width
     $width = get_post_meta($button_id, 'wpedon_button_stripe_width', true);
     if ($width === '') {
-        $width = $options['stripe_width'] ?? '';
+        $width = isset($options['stripe_width']) ? $options['stripe_width'] : '';
     }
 
     // Determine if Stripe should be disabled based on the 'show' value
@@ -490,7 +512,17 @@ function connection_data($button_id) {
 		$order = new Order();
 		$order_id = $order->create(array_merge($data, ['payment_status' => 'pending', 'payment_method' => 'stripe', 'mode' => $stripe_connection_data['mode']]));
 		$current_user_id = get_current_user_id();
-		$current_url = sanitize_url($_POST['location']);
+		
+		// Validate location parameter to prevent open redirect
+		$current_url = isset($_POST['location']) ? esc_url_raw($_POST['location']) : home_url();
+		$site_host = wp_parse_url(home_url(), PHP_URL_HOST);
+		$location_parsed = wp_parse_url($current_url);
+		if (!empty($location_parsed['host']) && $location_parsed['host'] !== $site_host) {
+			$current_url = home_url();
+		} elseif (empty($location_parsed['host']) && strpos($current_url, '//') === 0) {
+			$current_url = home_url();
+		}
+		
 		$options = Option::get();
 		$success_url = !empty($stripe_connection_data['return_url']) ? $stripe_connection_data['return_url'] : (!empty($options['return']) ? $options['return'] : add_query_arg(['wpedon_stripe_button' => $data['button_id'], 'wpedon_stripe_success' => 1], $current_url));
 		$cancel_url = !empty($options['cancel']) ?
@@ -641,5 +673,16 @@ function connection_data($button_id) {
 		wp_send_json([
 			'result' => 'success'
 		]);
+	}
+
+	/**
+	 * Update the flag indicating if any buttons have Stripe connected.
+	 * Called after a button is disconnected from Stripe.
+	 */
+	function update_button_stripe_connected_flag()
+	{
+		if (function_exists('wpedon_update_button_stripe_connected_flag')) {
+			wpedon_update_button_stripe_connected_flag();
+		}
 	}
 }

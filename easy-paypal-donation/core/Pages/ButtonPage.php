@@ -304,6 +304,7 @@ class ButtonPage
 				update_post_meta( $post_id, 'ppcp_height', sanitize_text_field( $_POST['ppcp_height'] ) );
 				update_post_meta($post_id, 'wpedon_button_disable_stripe', sanitize_text_field($_POST['wpedon_button_disable_stripe']));
 				update_post_meta($post_id, 'wpedon_button_stripe_width', sanitize_text_field($_POST['wpedon_button_stripe_width']));
+				update_post_meta($post_id, '_wpedon_stripe_mode', sanitize_text_field($_POST['mode_stripe']));
 
 				$message = esc_html__("Saved", 'easy-paypal-donation');
 			}
@@ -337,8 +338,8 @@ class ButtonPage
 		if (isset($_GET['inline']) && $_GET['inline'] == "true") {
 			$post_id = array(intval($_GET['product']));
 		} else {
-			if (isset($_GET['order']) && is_array($_GET['product'])) {
-				$post_id = array_map('intval', $_GET['order']);
+			if (isset($_GET['product']) && is_array($_GET['product'])) {
+				$post_id = array_map('intval', $_GET['product']);
 			}
 		}
 
