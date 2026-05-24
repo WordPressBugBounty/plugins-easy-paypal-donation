@@ -444,12 +444,23 @@ function wpedon_shortcode($atts) {
 		$output .= '<br />';
 		$output .= "<input type='number' min='1' step='any' name='ddm_{$rand_string}' class='wpedon-input' value='{$amount}' />";
 		$output .= "<script>
-                jQuery(document).ready(function($){
-                    jQuery('[name=\"ddm_{$rand_string}\"]').on('change', function(){
-                      jQuery('#amount_$rand_string').val($(this).val());
-                      jQuery('#price_$rand_string').val($(this).val());
-                    });
-                });
+                (function(){
+                    function wpedonInitManual_{$rand_string}(){
+                        var input = document.querySelector('[name=\"ddm_{$rand_string}\"]');
+                        if (!input) { return; }
+                        input.addEventListener('change', function(){
+                            var amountEl = document.getElementById('amount_{$rand_string}');
+                            var priceEl  = document.getElementById('price_{$rand_string}');
+                            if (amountEl) { amountEl.value = this.value; }
+                            if (priceEl)  { priceEl.value  = this.value; }
+                        });
+                    }
+                    if (document.readyState === 'loading') {
+                        document.addEventListener('DOMContentLoaded', wpedonInitManual_{$rand_string});
+                    } else {
+                        wpedonInitManual_{$rand_string}();
+                    }
+                })();
             </script>";
 		$output .= '<br/><br/></div>';
 	} elseif (!empty($wpedon_button_scpriceprice)) {
@@ -460,12 +471,23 @@ function wpedon_shortcode($atts) {
 
 		$output .= "
 		<script>
-		jQuery(document).ready(function(){
-			jQuery('#dd_$rand_string').on('change', function() {
-			  jQuery('#amount_$rand_string').val(this.value);
-              jQuery('#price_$rand_string').val(this.value);
-			});
-		});
+		(function(){
+			function wpedonInitDropdown_{$rand_string}(){
+				var dd = document.getElementById('dd_{$rand_string}');
+				if (!dd) { return; }
+				dd.addEventListener('change', function(){
+					var amountEl = document.getElementById('amount_{$rand_string}');
+					var priceEl  = document.getElementById('price_{$rand_string}');
+					if (amountEl) { amountEl.value = this.value; }
+					if (priceEl)  { priceEl.value  = this.value; }
+				});
+			}
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', wpedonInitDropdown_{$rand_string});
+			} else {
+				wpedonInitDropdown_{$rand_string}();
+			}
+		})();
 		</script>
 		";
 

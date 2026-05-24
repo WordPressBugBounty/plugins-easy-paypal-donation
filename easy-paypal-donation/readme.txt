@@ -4,9 +4,9 @@ Donate link: https://wpplugin.org/donate/
 Tags: donation, donate, charity, paypal, ecommerce
 Author URI: https://wpplugin.org
 Requires at least: 3.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 5.4
-Stable tag: 1.5.4
+Stable tag: 1.5.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,13 @@ Yes, there is no limit to the amount of PayPal donations buttons that you can pu
 6. Button Inserter
 
 == Changelog ==
+
+= 1.5.5 =
+* 5/23/26
+* Change - Frontend Stripe button handler (assets/js/wpedon.js) rewritten in vanilla JavaScript. Functionality is unchanged.
+* Fix - Resolved "Uncaught ReferenceError: jQuery is not defined" on the donation form when themes or optimization plugins defer jQuery.
+* Fix - Inline scripts that sync the manual donation amount input and the amount dropdown into the hidden form fields no longer depend on jQuery, so the donor's chosen amount is sent correctly to PayPal and Stripe regardless of how jQuery is loaded.
+* Fix - Admin settings image picker no longer fails when jQuery is deferred in wp-admin.
 
 = 1.5.4 =
 * 1/28/26
