@@ -3,10 +3,10 @@ Contributors: scottpaterson,wp-plugin
 Donate link: https://wpplugin.org/donate/
 Tags: donation, donate, charity, paypal, ecommerce
 Author URI: https://wpplugin.org
-Requires at least: 3.0
+Requires at least: 3.1.0
 Tested up to: 7.0
 Requires PHP: 5.4
-Stable tag: 1.5.5
+Stable tag: 1.5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,10 @@ Yes, there is no limit to the amount of PayPal donations buttons that you can pu
 6. Button Inserter
 
 == Changelog ==
+
+= 1.5.6 =
+* 7/21/26
+* Security - Small security fix.
 
 = 1.5.5 =
 * 5/23/26

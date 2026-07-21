@@ -16,7 +16,12 @@ function wpedon_shortcode($atts) {
         'image' 	=> ''
     ), $atts);
 
-    $post_id = $atts['id'];
+    // Cast the shortcode id to a non-negative integer. Post IDs are always
+    // integers, and every usage below (get_post, get_post_meta, etc.) already
+    // relied on PHP silently casting this value. Casting here at the source
+    // prevents attribute-breakout payloads (e.g. id="123' onfocus=...") from
+    // being concatenated into the output HTML id attributes further down.
+    $post_id = absint( $atts['id'] );
 
 	// paypal account data
 	$ppcp = new \WPEasyDonation\Base\PpcpController();

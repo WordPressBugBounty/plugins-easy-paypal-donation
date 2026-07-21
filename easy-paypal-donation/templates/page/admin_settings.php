@@ -682,7 +682,7 @@
                         </div>
                         <div style="background-color:#fff;padding:12px;text-align:center;">
                             <p style="margin-top:0;"><?php _e('A lot of work went into building this plugin. A quick review helps us keep it free and growing!', 'easy-paypal-donation'); ?></p>
-                            <a target="_blank" href="https://wordpress.org/support/plugin/easy-paypal-donation/reviews/?filter=5#new-post" class="button-primary" style="font-size: 14px;"><?php _e('Leave a Review', 'easy-paypal-donation'); ?></a>
+                            <a target="_blank" href="https://wordpress.org/support/plugin/easy-paypal-donation/reviews/#new-post" class="button-primary" style="font-size: 14px;"><?php _e('Leave a Review', 'easy-paypal-donation'); ?></a>
                         </div>
                     </div>
 
