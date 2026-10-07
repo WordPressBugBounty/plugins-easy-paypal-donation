@@ -17,6 +17,8 @@
 </style>
 
 <div style="width:98%">
+<div class="wpedon-list-layout">
+<div class="wpedon-list-main">
 
 	<table width="100%">
 		<tr>
@@ -51,11 +53,16 @@
 
 	<form id="products-filter" method="get">
 		<input type="hidden" name="page" value="<?php echo esc_attr($_REQUEST['page']); ?>" />
-		<?php 
+		<?php
 		// Display the views (filters)
 		$args['table']->views();
 		// Display the table
 		$args['table']->display();
 		?>
 	</form>
+</div>
+<div class="wpedon-list-sidebar">
+	<?php \WPEasyDonation\Helpers\Template::getTemplate('page/admin_sidebar.php', false); ?>
+</div>
+</div>
 </div>

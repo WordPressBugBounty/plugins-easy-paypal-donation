@@ -12,10 +12,10 @@ class NoticeController
 	public function register() {
 		add_action('admin_notices', array($this, 'activation_notice'));
 		add_action('admin_notices', array($this, 'stripe_connect_error_notice'));
-		add_action('admin_notices', array($this, 'stripe_connect_notice'));
-		add_action('admin_notices',  array($this, 'ppcp_notice'));
-		add_action('admin_init', array($this, 'stripe_connect_notice_dismiss'));
-		add_action('admin_init', array($this, 'ppcp_notice_dismiss'));
+		// add_action('admin_notices', array($this, 'stripe_connect_notice'));
+		// add_action('admin_notices',  array($this, 'ppcp_notice'));
+		// add_action('admin_init', array($this, 'stripe_connect_notice_dismiss'));
+		// add_action('admin_init', array($this, 'ppcp_notice_dismiss'));
 		add_action('admin_notices', array($this, 'localhost_notice'));
 	}
 

@@ -4,9 +4,9 @@ Donate link: https://wpplugin.org/donate/
 Tags: donation, donate, charity, paypal, ecommerce
 Author URI: https://wpplugin.org
 Requires at least: 3.1.0
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 5.4
-Stable tag: 1.5.6
+Stable tag: 1.5.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,10 +17,6 @@ Add a PayPal or Stripe Donation Button to your website and start collecting dona
 ###  This plugin allows you to collect PayPal and Stripe donations on your website
 
 Do you want to easily collect donations on your site? This is the plugin just for that. Setup is easy to connect to PayPal and Stripe. We're also an official PayPal & Stripe Partner.
-
-### Have a question or problem?
-If you have any problems, questions, or issues please create a [support request](https://wordpress.org/support/plugin/easy-paypal-donation/) and we will get back to you quickly!
-
 
 ###  Watch this 1 minute video of how the plugin works:
 
@@ -69,6 +65,9 @@ This plugin works with any WordPress theme.
 >
 > [You can learn more about Accept Donations with PayPal Pro here](https://wpplugin.org/downloads/paypal-donation-pro/)
 
+### Have a question or problem?
+If you have any problems, questions, or issues please create a [support request](https://wordpress.org/support/plugin/easy-paypal-donation/) and we will get back to you quickly!
+
 ###  About Us
 WPPlugin LLC is an offical PayPal & Stripe Partner based in Boulder, Colorado. You can visit WP Plugins website at [wpplugin.org](https://wpplugin.org). Various trademarks held by their respective owners.
 
@@ -98,6 +97,10 @@ Yes, there is no limit to the amount of PayPal donations buttons that you can pu
 6. Button Inserter
 
 == Changelog ==
+
+= 1.5.7 =
+* 10/7/26
+* Change - Hid the Stripe Connect and PayPal Commerce Platform admin notices.
 
 = 1.5.6 =
 * 7/21/26

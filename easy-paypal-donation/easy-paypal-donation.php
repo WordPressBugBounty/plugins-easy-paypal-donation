@@ -12,7 +12,7 @@ Tags: donation, donate, donations, charity, paypal, paypal donation, ecommerce, 
 Author: Scott Paterson
 Author URI: https://wpplugin.org
 License: GPL2
-Version: 1.5.6
+Version: 1.5.7
 Text Domain: easy-paypal-donation
 Domain Path: /languages
 */
@@ -43,7 +43,7 @@ if (file_exists(dirname(__FILE__).'/vendor/autoload.php')) {
 }
 
 define('WPEDON_FREE_DIR_PATH', plugin_dir_path(__FILE__));
-define('WPEDON_FREE_VERSION_NUM', '1.5.6');
+define('WPEDON_FREE_VERSION_NUM', '1.5.7');
 define( 'WPEDON_FREE_PPCP_API', 'https://wpplugin.org/ppcp-wpedon/');
 define( 'WPEDON_FREE_STRIPE_CONNECT_ENDPOINT', 'https://wpplugin.org/stripe-wpedon/connect.php');
 
@@ -98,7 +98,7 @@ register_activation_hook(__FILE__, function () {
 		deactivate_plugins($pro_plugin);
 	}
 	\WPEasyDonation\Helpers\Option::init();
-	
+
 	// Set transient for activation notice
 	set_transient('wpedon_activation_notice_' . get_current_user_id(), true);
 	
